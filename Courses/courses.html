@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="courses.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-container course-page">
+        <!-- Header -->
+        <header class="course-header">
+            <button class="header-icon-btn back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <h1>My Courses</h1>
+            <button class="header-icon-btn search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </header>
+
+        <div class="content-scroll">
+            <!-- Tabs -->
+            <div class="course-tabs">
+                <button class="pill-tab active">
+                    <div class="tab-icon blue"><i class="fa-regular fa-file-lines"></i></div>
+                    <span>All</span>
+                </button>
+                <button class="pill-tab">
+                    <div class="tab-icon orange"><i class="fa-solid fa-fire"></i></div>
+                    <span>Ongoing</span>
+                </button>
+                <button class="pill-tab">
+                    <div class="tab-icon purple"><i class="fa-regular fa-circle-check"></i></div>
+                    <span>Completed</span>
+                </button>
+            </div>
+
+            <!-- Promo Banner -->
+            <div class="course-banner">
+                <div class="banner-content">
+                    <h2>Find a course you want to learn !</h2>
+                    <button class="check-now-btn">Check Now</button>
+                </div>
+                <div class="banner-image">
+                    <img src="../image/course1.png" alt="Course">
+                </div>
+                <div class="banner-decor-lines">
+                    <svg width="50" height="50" viewBox="0 0 50 50">
+                        <path d="M0,10 Q25,25 50,10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                        <path d="M0,25 Q25,40 50,25" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                        <path d="M0,40 Q25,55 50,40" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Course List -->
+            <div class="course-list">
+                <!-- Course 1 -->
+                <div class="course-card-new purple-theme">
+                    <div class="card-illustration">
+                        <img src="../image/course2.png" alt="Art">
+                    </div>
+                    <div class="card-content">
+                        <h3>Creative Art Design</h3>
+                        <p class="card-desc">Craft a career in the design arts with support from our finest creatives.</p>
+                        <div class="progress-section">
+                            <div class="progress-label">Completed 70%</div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card-new teal-theme">
+                    <div class="card-illustration">
+                        <img src="../image/course3.png" alt="Reading">
+                    </div>
+                    <div class="card-content">
+                        <h3>Quilting Courses</h3>
+                        <p class="card-desc">Congratulions ! You completed the data science course 100%.</p>
+                        <div class="progress-section">
+                            <div class="progress-label">Completed 100%</div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card-new orange-theme">
+                    <div class="card-illustration">
+                        <img src="../image/course4.png" alt="PPT">
+                    </div>
+                    <div class="card-content">
+                        <h3>Powerpoint</h3>
+                        <p class="card-desc">Enhance your presentation skills</p>
+                        <!-- No progress shown in image for this one, or maybe just hidden -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="../Dashboard/dashboard.html" class="nav-item">
+                <i class="fa-solid fa-chart-pie"></i>
+            </a>
+            <a href="../Buddies/buddies.html" class="nav-item">
+                <i class="fa-solid fa-user-group"></i>
+            </a>
+            <a href="../ToDo/todo.html" class="nav-item">
+                <i class="fa-solid fa-list-check"></i>
+            </a>
+            <a href="../Profile/profile.html" class="nav-item">
+                <i class="fa-regular fa-user"></i>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

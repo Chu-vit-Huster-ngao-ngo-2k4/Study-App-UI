@@ -1,0 +1,221 @@
+/* Friends List Styles */
+.friends-list {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding-bottom: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.friends-list::-webkit-scrollbar {
+    display: none;
+}
+
+.friend-card {
+    min-width: 160px;
+    background-color: var(--white);
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Vertical layout */
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: transform 0.2s;
+}
+
+.friend-card:active {
+    transform: scale(0.98);
+}
+
+.friend-avatar-container {
+    position: relative;
+    width: 70px;
+    height: 70px;
+}
+
+.friend-avatar-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #F5F7FA;
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+}
+
+.status-indicator.online {
+    background-color: #4CAF50;
+}
+
+.status-indicator.busy {
+    background-color: #FF9800;
+}
+
+.friend-details {
+    text-align: center;
+    width: 100%;
+}
+
+.friend-details h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.friend-details p {
+    font-size: 11px;
+    color: var(--text-gray);
+}
+
+.friend-actions {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.action-btn {
+    flex: 1;
+    height: 36px;
+    border-radius: 12px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+.message-btn {
+    background-color: #F0F4F8;
+    color: var(--text-gray);
+}
+
+.message-btn:hover {
+    background-color: #E0E5EC;
+    color: var(--text-dark);
+}
+
+.join-btn {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.join-btn:hover {
+    background-color: #29a0e9;
+    box-shadow: 0 4px 10px rgba(79, 182, 249, 0.3);
+}
+
+/* Popup Styles */
+.popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.popup-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.popup-content {
+    background-color: var(--white);
+    width: 80%;
+    max-width: 300px;
+    padding: 30px 20px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    transform: scale(1);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.popup-overlay.hidden .popup-content {
+    transform: scale(0.8);
+}
+
+.popup-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #E3F2FD;
+    color: var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin: 0 auto 16px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(79, 182, 249, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(79, 182, 249, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(79, 182, 249, 0); }
+}
+
+.popup-content h3 {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.popup-content p {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 24px;
+}
+
+.timer-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 24px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.cancel-btn {
+    background-color: #FFEBEE;
+    color: #FF5252;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cancel-btn:hover {
+    background-color: #FFCDD2;
+}

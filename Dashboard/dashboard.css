@@ -1,0 +1,331 @@
+/* Dashboard Header */
+.dashboard-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px 10px;
+    z-index: 100;
+    background: linear-gradient(to bottom, rgba(245, 247, 250, 1) 0%, rgba(245, 247, 250, 0.9) 60%, rgba(245, 247, 250, 0) 100%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Today's Progress Card */
+.progress-card {
+    background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(79, 182, 249, 0.15);
+}
+
+.progress-info h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.streak {
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.progress-stats {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.progress-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary-blue) 80%, #FFFFFF 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.progress-circle::before {
+    content: '';
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background-color: #E3F2FD; /* Matches the card background roughly */
+    border-radius: 50%;
+}
+
+.percentage {
+    position: relative;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    z-index: 1;
+}
+
+.goal-text {
+    font-size: 12px;
+    color: var(--text-dark);
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.progress-image {
+    display: flex;
+    align-items: flex-end;
+}
+
+.progress-image img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+/* Quick Actions Grid */
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.action-card {
+    background-color: var(--white);
+    padding: 16px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border-color: rgba(0,0,0,0.05);
+}
+
+.action-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.action-card span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.3;
+}
+
+/* Action Card Colors */
+.blue-bg { 
+    background-color: #E3F2FD; 
+    color: var(--primary-blue); 
+}
+
+.orange-bg { 
+    background-color: #FFF3E0; 
+    color: var(--card-orange); 
+}
+
+.purple-bg { 
+    background-color: #EDE7F6; 
+    color: var(--pill-purple); 
+}
+
+.red-bg { 
+    background-color: #FFEBEE; 
+    color: #EF5350; 
+}
+
+/* --- New Stats Section Styles --- */
+
+/* Time Toggle */
+.time-toggle {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 4px;
+    display: flex;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.toggle-btn {
+    border: none;
+    background: none;
+    padding: 6px 16px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-gray);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+    background-color: var(--primary-blue);
+    color: white;
+    box-shadow: 0 2px 6px rgba(74, 144, 226, 0.3);
+}
+
+/* Screen Time Card */
+.screen-time-card {
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.st-label {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 4px;
+}
+
+.st-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.st-trend {
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.st-trend.positive {
+    color: #00C853; /* Green */
+}
+
+/* Wave Chart */
+.wave-chart-container {
+    position: relative;
+    height: 120px;
+    margin-top: 10px;
+}
+
+.wave-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 6px rgba(74, 144, 226, 0.2));
+}
+
+.chart-days {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -10px; /* Pull up slightly */
+    padding: 0 10px;
+}
+
+.chart-days span {
+    font-size: 12px;
+    color: var(--text-gray);
+}
+
+/* Bottom Stats Row */
+.stats-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-box {
+    flex: 1;
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+.circle-chart-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+}
+
+.circular-chart {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.circular-chart .circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+
+.circular-chart .circle {
+    fill: none;
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+
+.circular-chart.blue .circle {
+    stroke: var(--primary-blue);
+}
+
+.circular-chart.green .circle {
+    stroke: #00C853;
+}
+
+.circular-chart .stat-value {
+    fill: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 8px;
+    text-anchor: middle;
+}
+
+.stat-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+@keyframes progress {
+    0% { stroke-dasharray: 0 100; }
+}

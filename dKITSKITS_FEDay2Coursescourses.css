@@ -1,0 +1,42 @@
+
+/* Background Blur Decor */
+.course-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.course-info, .course-thumb {
+    position: relative;
+    z-index: 2;
+}
+
+.course-decor-circle {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.course-decor-circle.big {
+    width: 100px;
+    height: 100px;
+    filter: blur(25px);
+}
+
+.course-decor-circle.small {
+    width: 60px;
+    height: 60px;
+    filter: blur(15px);
+}
+
+/* Colors */
+.course-decor-circle.orange { background-color: #FFCC80; }
+.course-decor-circle.pink { background-color: #F48FB1; }
+.course-decor-circle.blue { background-color: #90CAF9; }
+.course-decor-circle.purple { background-color: #CE93D8; }
+.course-decor-circle.green { background-color: #A5D6A7; }
+
+/* Positions */
+.pos-top-right { top: -20px; right: -20px; }
+.pos-bottom-left { bottom: -20px; left: -20px; }
+.pos-center-right { top: 30%; right: 10%; }

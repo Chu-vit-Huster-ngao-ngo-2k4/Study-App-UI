@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile & Setting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-container profile-page">
+        <!-- Header -->
+        <header class="profile-header">
+            <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+            <h1>Profile & Setting</h1>
+            <div class="header-spacer"></div>
+        </header>
+
+        <div class="content-scroll">
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ48cPDA1CJ-sUjTt1Q0GfGMcuiqZvA8QfPSaPYPohKEOs5ejIqtptfaRIAsLemP_RqU4Us9yptWcK3e70N1YW6FB8_dffyywH2Ody508w&s=10" alt="Profile Avatar">
+                    </div>
+                    <div class="profile-text">
+                        <h2>Judy Hopps</h2>
+                        <p>judy.hopps@zpd.gov</p>
+                    </div>
+                </div>
+                <button class="edit-profile-btn">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </button>
+            </div>
+
+            <!-- Account Section -->
+            <div class="settings-section">
+                <h3>Account</h3>
+                <div class="settings-list">
+                    <a href="#" class="setting-item">
+                        <div class="setting-left">
+                            <div class="setting-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                            <span>My Activity Log</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                    </a>
+                    <a href="#" class="setting-item">
+                        <div class="setting-left">
+                            <div class="setting-icon"><i class="fa-solid fa-lock"></i></div>
+                            <span>Change Password</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                    </a>
+                    <div class="setting-item">
+                        <div class="setting-left">
+                            <div class="setting-icon"><i class="fa-regular fa-bell"></i></div>
+                            <span>Notifications</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appearance Section -->
+            <div class="settings-section">
+                <h3>Appearance</h3>
+                <div class="settings-list">
+                    <a href="#" class="setting-item">
+                        <div class="setting-left">
+                            <div class="setting-icon"><i class="fa-regular fa-sun"></i></div>
+                            <span>Themes</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Support Section -->
+            <div class="settings-section">
+                <h3>Support</h3>
+                <div class="settings-list">
+                    <a href="#" class="setting-item">
+                        <div class="setting-left">
+                            <div class="setting-icon"><i class="fa-regular fa-circle-question"></i></div>
+                            <span>Help/Support</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="../Dashboard/dashboard.html" class="nav-item">
+                <i class="fa-solid fa-chart-pie"></i>
+            </a>
+            <a href="../Buddies/buddies.html" class="nav-item">
+                <i class="fa-solid fa-user-group"></i>
+            </a>
+            <a href="../ToDo/todo.html" class="nav-item">
+                <i class="fa-solid fa-list-check"></i>
+            </a>
+            <a href="#" class="nav-item active">
+                <i class="fa-regular fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="video-call.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-container video-call-page">
+        <!-- Header -->
+        <header class="meeting-header">
+            <button class="header-icon-btn back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="meeting-info-container">
+                <div class="meeting-title">
+                    <h2>STAND UP MEETING</h2>
+                    <p>- WEEK 1</p>
+                </div>
+                <div class="recording-info">
+                    <div class="rec-indicator">
+                        <div class="rec-dot"></div>
+                    </div>
+                    <span class="timer">05:12</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="header-icon-btn" onclick="window.location.href='chat.html?name=Nick%20Wilde&avatar=https://i.pinimg.com/736x/6c/c6/8d/6cc68d61d16bdf2accf93d38d089165e.jpg'">
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <div class="notif-dot"></div>
+                </button>
+            </div>
+        </header>
+
+        <!-- Video Grid -->
+        <div class="video-grid">
+            <!-- Remote Participant -->
+            <div class="video-card remote active-speaker">
+                <img src="https://i.pinimg.com/736x/6c/c6/8d/6cc68d61d16bdf2accf93d38d089165e.jpg" alt="Nick" class="video-feed">
+                
+                <div class="name-tag">
+                    <div class="mini-avatar">
+                        <img src="https://i.pinimg.com/736x/6c/c6/8d/6cc68d61d16bdf2accf93d38d089165e.jpg" alt="Avatar">
+                    </div>
+                    <span>Nick Wilde</span>
+                </div>
+
+                <div class="audio-indicator">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+            </div>
+
+            <!-- Local Participant (You) -->
+            <div class="video-card local">
+                <img src="https://i.pinimg.com/736x/78/c9/d2/78c9d20b45d80309421e196d25965f4f.jpg" alt="You" class="video-feed" id="local-video-feed">
+                <div class="video-placeholder" id="local-video-placeholder">
+                    <div class="placeholder-icon">
+                        <i class="fa-solid fa-video-slash"></i>
+                    </div>
+                </div>
+                
+                <div class="name-tag">
+                    <div class="mini-avatar">
+                        <img src="https://i.pinimg.com/736x/78/c9/d2/78c9d20b45d80309421e196d25965f4f.jpg" alt="Avatar">
+                    </div>
+                    <span>You</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Bar -->
+        <div class="controls-bar">
+            <button class="control-btn white" id="btn-mic">
+                <i class="fa-solid fa-microphone"></i>
+            </button>
+            <button class="control-btn white" id="btn-cam">
+                <i class="fa-solid fa-video"></i>
+            </button>
+            <button class="control-btn glass" id="btn-reaction">
+                <i class="fa-solid fa-fire"></i>
+            </button>
+            <button class="control-btn glass" id="btn-chat">
+                <i class="fa-regular fa-paper-plane"></i>
+            </button>
+            <button class="control-btn red end-call" onclick="window.location.href='buddies.html'">
+                <i class="fa-solid fa-phone-slash"></i>
+            </button>
+            <button class="control-btn white" id="btn-stats">
+                <i class="fa-solid fa-chart-simple"></i>
+            </button>
+        </div>
+    </div>
+    <script src="video-call.js"></script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+/* Buddies Page Styles */
+
+.buddies-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: linear-gradient(to bottom, rgba(245, 247, 250, 1) 0%, rgba(245, 247, 250, 0.9) 60%, rgba(245, 247, 250, 0) 100%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 100;
+}
+
+.buddies-header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-dark);
+    text-decoration: none;
+    background: var(--white);
+}
+
+.header-spacer {
+    width: 40px;
+}
+
+/* Search & Add */
+.search-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.search-input-wrapper {
+    flex: 1;
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.search-input-wrapper input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.search-icon {
+    color: var(--text-gray);
+}
+
+.add-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background-color: var(--white);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-dark);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    cursor: pointer;
+}
+
+/* Online Friends List */
+.online-friends-section {
+    margin-bottom: 30px;
+}
+
+.online-friends-list {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none; /* Firefox */
+}
+
+.online-friends-list::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.online-friend-item {
+    flex-shrink: 0;
+}
+
+.friend-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    position: relative;
+    padding: 2px;
+    background: transparent;
+}
+
+.friend-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.add-avatar {
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+    background: transparent;
+}
+
+.status-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-color);
+}
+
+.status-dot.online {
+    background-color: #4CAF50;
+}
+
+.status-dot.busy {
+    background-color: #FF9800;
+}
+
+/* Group Discussion Cards */
+.group-discussion-list {
+    display: flex;
+    flex-direction: column; /* Or row if horizontal scroll desired */
+    gap: 20px;
+    padding-bottom: 20px;
+    overflow-x: auto;
+    flex-direction: row; /* Match the image which implies horizontal scroll */
+    scrollbar-width: none;
+}
+
+.group-discussion-list::-webkit-scrollbar {
+    display: none;
+}
+
+.group-card {
+    min-width: 280px;
+    background-color: #FFF8E1; /* Creamy background */
+    border-radius: 30px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.group-card.blue-theme {
+    background-color: #E3F2FD;
+}
+
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    width: 80px;
+    gap: 6px;
+    background-color: var(--white);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #FF5252;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.red-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #FF5252;
+    border-radius: 50%;
+}
+
+.group-content {
+    position: relative;
+    z-index: 2;
+}
+
+.group-topic-label {
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-bottom: 4px;
+}
+
+.group-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.group-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.group-author img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info span {
+    font-size: 13px;
+    color: var(--text-gray);
+    display: block;
+}
+
+.group-participants {
+    display: flex;
+    align-items: center;
+}
+
+.group-participants img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    margin-left: -10px;
+    object-fit: cover;
+}
+
+.group-participants img:first-child {
+    margin-left: 0;
+}
+
+.more-participants {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #FFCC80;
+    border: 2px solid var(--white);
+    margin-left: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Decorative Circles */
+.group-decor-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.group-decor-circle.big {
+    width: 80px;
+    height: 80px;
+}
+
+.group-decor-circle.small {
+    width: 40px;
+    height: 40px;
+}
+
+.group-decor-circle.tiny {
+    width: 15px;
+    height: 15px;
+}
+
+/* Positioning and Colors for Card 1 */
+.group-card .big.orange {
+    background-color: #FFCC80;
+    top: 50%;
+    right: -20px;
+    filter: blur(20px);
+}
+
+.group-card .small.pink {
+    background-color: #F48FB1;
+    top: 30%;
+    right: 40px;
+    filter: blur(10px);
+}
+
+.group-card .tiny.yellow {
+    background-color: #FFF59D;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Positioning and Colors for Card 2 */
+.group-card .big.blue {
+    background-color: #90CAF9;
+    bottom: -20px;
+    right: -20px;
+    filter: blur(20px);
+}
+
+.group-card .small.purple {
+    background-color: #CE93D8;
+    top: 20px;
+    right: 20px;
+    filter: blur(10px);
+}
+
+/* --- Fixes and Redesign --- */
+
+/* Fix spacing for buddies page */
+.buddies-page .content-scroll {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+/* Vertical Friends List */
+.all-friends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+/* Redesign Friend Cards for Buddies Page */
+.all-friends-list .friend-card {
+    flex-direction: row; /* Horizontal layout */
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    gap: 16px;
+    width: 100%;
+}
+
+.all-friends-list .friend-avatar-container {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.all-friends-list .friend-details {
+    text-align: left; /* Left align text */
+    flex: 1; /* Take remaining space */
+}
+
+.all-friends-list .friend-details h3 {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.all-friends-list .friend-details p {
+    font-size: 12px;
+}
+
+.all-friends-list .friend-actions {
+    display: flex;
+    flex-direction: column-reverse; /* Stack vertically, Join on top (since Join is 2nd in HTML) */
+    width: auto; /* Auto width */
+    gap: 8px;
+}
+
+.all-friends-list .action-btn {
+    width: 44px;
+    height: 32px;
+    border-radius: 10px;
+    flex: none; /* Don't stretch */
+}
+
+/* Specific button styling to match image */
+.all-friends-list .join-btn {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.all-friends-list .message-btn {
+    background-color: #F5F7FA;
+    color: var(--text-gray);
+}
+
+footer{
+    height: 100px;
+    width: 100%;
+}
+
+.join-group-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--text-dark);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.join-group-btn:active {
+    transform: scale(0.98);
+}
+
+.group-card.blue-theme .join-group-btn {
+    background-color: var(--primary-blue);
+}
+
+/* Update Group Card for Flex Layout */
+.group-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.group-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.group-participants {
+    margin-top: auto; /* Push to bottom of content if needed, or just let content flow */
+}
+
+.join-group-btn {
+    margin-top: 20px;
+    z-index: 5; /* Ensure button is clickable above decor */
+    position: relative;
+}

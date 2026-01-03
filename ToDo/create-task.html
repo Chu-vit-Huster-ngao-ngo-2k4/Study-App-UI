@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Task</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="create-task.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-container create-task-page">
+        <!-- Header -->
+        <header class="page-header">
+            <button class="header-icon-btn back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <h1>Create New Task</h1>
+            <div class="header-spacer"></div>
+        </header>
+
+        <div class="content-scroll">
+            <form class="task-form">
+                <!-- Title -->
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" placeholder="Book reading" value="Book reading">
+                </div>
+
+                <!-- Date -->
+                <div class="form-group">
+                    <label>Date</label>
+                    <div class="input-with-icon">
+                        <input type="text" value="10 July 2025">
+                        <i class="fa-regular fa-calendar"></i>
+                    </div>
+                </div>
+
+                <!-- Time -->
+                <div class="form-group">
+                    <label>Time</label>
+                    <div class="input-with-icon">
+                        <input type="text" value="12:30 - 13:00">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                </div>
+
+                <!-- Remind me -->
+                <div class="form-group toggle-group">
+                    <div class="toggle-label">
+                        <i class="fa-regular fa-bell"></i>
+                        <span>Remind me</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <!-- Category -->
+                <div class="form-group">
+                    <label>Category</label>
+                    <div class="category-chips">
+                        <button type="button" class="chip active">Study</button>
+                        <button type="button" class="chip">Education</button>
+                        <button type="button" class="chip">Shopping</button>
+                        <button type="button" class="chip">Daily tasks</button>
+                        <button type="button" class="chip">Life</button>
+                        <button type="button" class="chip add-tag"><i class="fa-solid fa-plus"></i> Add tag</button>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label>Description (Optional)</label>
+                    <textarea rows="3">After completing a design project, I have to read 60 pages of the book UI is Communication for 30 minutes.</textarea>
+                </div>
+
+                <!-- Link -->
+                <div class="form-group">
+                    <label>Link (Optional)</label>
+                    <input type="text" value="www.castbox.com">
+                </div>
+
+                <!-- Add Photo -->
+                <div class="form-group">
+                    <label>Add photo (Optional)</label>
+                    <div class="photo-upload-area">
+                        <i class="fa-regular fa-image"></i>
+                        <span>Enter your photo</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bottom Button -->
+        <div class="bottom-action">
+            <button class="create-btn">Create task</button>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h2>Success</h2>
+            <p>Task created successfully!</p>
+            <button class="modal-ok-btn">OK</button>
+        </div>
+    </div>
+
+    <script src="create-task.js"></script>
+</body>
+</html>

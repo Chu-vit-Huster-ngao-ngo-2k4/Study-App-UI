@@ -1,0 +1,241 @@
+.focus-page {
+    background-color: #E3F2FD; /* Light blue background */
+}
+
+.focus-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px 10px;
+    z-index: 100;
+    background: linear-gradient(to bottom, rgba(227, 242, 253, 1) 0%, rgba(227, 242, 253, 0.9) 60%, rgba(227, 242, 253, 0) 100%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.focus-header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.back-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.header-spacer {
+    width: 40px;
+}
+
+/* Timer Circle */
+.timer-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.timer-circle-outer {
+    width: 280px;
+    height: 280px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Creating the tick marks using a conic gradient mask or similar technique is complex.
+   We will simulate the "rotating ticks" effect using a dashed border and animation. */
+
+.timer-ticks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 15px dashed rgba(79, 182, 249, 0.3); /* Light blue dashes */
+    border-top-color: var(--primary-blue); /* Active part color */
+    border-right-color: var(--primary-blue);
+    box-sizing: border-box;
+    animation: rotateTimer 10s linear infinite;
+}
+
+@keyframes rotateTimer {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.timer-display {
+    text-align: center;
+    z-index: 1;
+}
+
+.timer-display h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.timer-display p {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+/* Controls */
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.control-icon-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--white);
+    border: none;
+    color: var(--text-gray);
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+}
+
+.control-icon-btn:hover {
+    background-color: #F5F7FA;
+    transform: scale(1.05);
+}
+
+.start-btn {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 12px 40px;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(79, 182, 249, 0.4);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.start-btn:hover {
+    background-color: #29a0e9;
+    transform: translateY(-2px);
+}
+
+/* Time Presets */
+.time-presets {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    padding-bottom: 4px; /* For scrollbar if needed */
+}
+
+.preset-pill {
+    background-color: var(--white);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: var(--text-gray);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.preset-pill.active {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(79, 182, 249, 0.3);
+}
+
+/* Ambient Sound */
+.ambient-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+}
+
+.ambient-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.ambient-card {
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.ambient-card:hover {
+    transform: translateY(-2px);
+}
+
+.ambient-card.active {
+    border-color: var(--primary-blue);
+    background-color: #F0F9FF;
+}
+
+.ambient-icon {
+    font-size: 24px;
+    color: var(--text-dark); /* Or specific colors per icon */
+}
+
+.ambient-card span {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* Specific icon colors for better look */
+.ambient-card:nth-child(1) .ambient-icon { color: #4CAF50; } /* Forest */
+.ambient-card:nth-child(2) .ambient-icon { color: #2196F3; } /* Rain */
+.ambient-card:nth-child(3) .ambient-icon { color: #0277BD; } /* Ocean */
+.ambient-card:nth-child(4) .ambient-icon { color: #3F51B5; } /* Space */
+.ambient-card:nth-child(5) .ambient-icon { color: #FF5722; } /* Fire */
+.ambient-card:nth-child(6) .ambient-icon { color: #795548; } /* Hill */
+
+/* Customize Playlist Button */
+.customize-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: transparent;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.customize-btn:hover {
+    background-color: rgba(79, 182, 249, 0.1);
+}

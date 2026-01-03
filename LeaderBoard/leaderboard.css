@@ -1,0 +1,201 @@
+/* Leaderboard Page Styles */
+.leaderboard-page {
+    background: linear-gradient(180deg, #FFD59E 0%, #FFB74D 40%, #FFFFFF 40%);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.leaderboard-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 24px;
+    gap: 20px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #5D4037;
+    cursor: pointer;
+}
+
+.leaderboard-header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #5D4037;
+    flex: 1;
+    text-align: center;
+    margin-right: 40px; /* Balance back button */
+}
+
+/* Podium Section */
+.podium-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 300px;
+    padding-bottom: 50px; /* Increased to push podiums up */
+    gap: 10px;
+}
+
+.podium-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.podium-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+    margin-bottom: -10px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.podium-item.first .podium-avatar {
+    width: 80px;
+    height: 80px;
+    margin-bottom: -15px;
+}
+
+.winner-badge {
+    position: absolute;
+    top: 65px;
+    background-color: #E65100;
+    color: white;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 3;
+}
+
+.podium-block {
+    width: 80px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.podium-item.second .podium-block {
+    height: 120px;
+    background-color: #8D6E63; /* Brownish */
+}
+
+.podium-item.first .podium-block {
+    height: 160px;
+    width: 90px;
+    background-color: #455A64; /* Dark Slate */
+    font-size: 50px;
+}
+
+.podium-item.third .podium-block {
+    height: 90px;
+    background-color: #EF6C00; /* Orange */
+}
+
+/* Leaderboard List */
+.leaderboard-list-container {
+    flex: 1;
+    background-color: white;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    padding: 30px 24px 100px 24px; /* Added bottom padding */
+    overflow-y: auto;
+    margin-top: -50px; /* Increased overlap to match podium shift */
+    scrollbar-width: none; /* Firefox */
+}
+
+.leaderboard-list-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border: 1px solid #F5F5F5;
+}
+
+.list-item.highlight {
+    border: 1px solid #8D6E63;
+    background-color: #FFF8E1;
+}
+
+.rank {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1A1A1A;
+    width: 30px;
+}
+
+.list-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 16px;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1A1A1A;
+    display: block;
+}
+
+.user-score {
+    font-size: 12px;
+    color: #FF9800;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.trend {
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.trend.up {
+    color: #4CAF50;
+}
+
+.trend.down {
+    color: #FF5252;
+}
+
+.coin-icon {
+    width: 14px;
+    height: 14px;
+    background-color: #FF9800;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 8px;
+}

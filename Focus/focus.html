@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Session</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="focus.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-container focus-page">
+        <!-- Header -->
+        <header class="focus-header">
+            <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+            <h1>Focus Session</h1>
+            <div class="header-spacer"></div>
+        </header>
+
+        <div class="content-scroll">
+            <!-- Timer Section -->
+            <div class="timer-container">
+                <div class="timer-circle-outer">
+                    <div class="timer-ticks"></div>
+                    <div class="timer-display">
+                        <h2 id="timer">25:00</h2>
+                        <p>Focus Time</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="timer-controls">
+                <button class="control-icon-btn"><i class="fa-solid fa-rotate-right"></i></button>
+                <button class="start-btn">Start</button>
+                <button class="control-icon-btn"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+
+            <!-- Time Presets -->
+            <div class="time-presets">
+                <button class="preset-pill">10m</button>
+                <button class="preset-pill active">25m</button>
+                <button class="preset-pill">30m</button>
+                <button class="preset-pill">45m</button>
+                <button class="preset-pill">1h</button>
+            </div>
+
+            <!-- Ambient Sound -->
+            <div class="ambient-section">
+                <h3>Ambient Sound</h3>
+                <div class="ambient-grid">
+                    <div class="ambient-card">
+                        <div class="ambient-icon"><i class="fa-solid fa-tree"></i></div>
+                        <span>Forest</span>
+                    </div>
+                    <div class="ambient-card">
+                        <div class="ambient-icon"><i class="fa-solid fa-cloud-rain"></i></div>
+                        <span>Rain</span>
+                    </div>
+                    <div class="ambient-card">
+                        <div class="ambient-icon"><i class="fa-solid fa-water"></i></div>
+                        <span>Ocean</span>
+                    </div>
+                    <div class="ambient-card">
+                        <div class="ambient-icon"><i class="fa-solid fa-rocket"></i></div>
+                        <span>Space</span>
+                    </div>
+                    <div class="ambient-card">
+                        <div class="ambient-icon"><i class="fa-solid fa-fire"></i></div>
+                        <span>Fire</span>
+                    </div>
+                    <div class="ambient-card">
+                        <div class="ambient-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                        <span>Hill</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customize Playlist -->
+            <button class="customize-btn">Customize Playlist</button>
+        </div>
+    </div>
+    <script>
+        // Simple script to handle active states
+        document.querySelectorAll('.preset-pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                document.querySelectorAll('.preset-pill').forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.ambient-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

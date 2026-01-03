@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="notifications.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-container notification-page">
+        <!-- Header -->
+        <header class="notification-header">
+            <button class="header-icon-btn back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <h1>Notifications</h1>
+            <div class="header-spacer"></div>
+        </header>
+
+        <div class="content-scroll">
+            <!-- Tabs -->
+            <div class="notification-tabs">
+                <button class="tab-btn active">View all <span class="badge">12</span></button>
+                <button class="tab-btn">Mentions <span class="badge">6</span></button>
+                <button class="tab-btn">Followers <span class="badge">4</span></button>
+            </div>
+
+            <!-- Notification List -->
+            <div class="notification-list">
+                
+                <!-- Friend Activity -->
+                <div class="notification-item unread">
+                    <div class="notif-avatar">
+                        <img src="https://i.pinimg.com/1200x/9d/78/d2/9d78d2c44c7c63c8d83c1dcfc88f585a.jpg" alt="User">
+                    </div>
+                    <div class="notif-content">
+                        <p class="notif-text"><strong>Nick Wilde</strong> followed you</p>
+                        <p class="notif-time">Thursday 4:20pm</p>
+                    </div>
+                    <div class="notif-meta">
+                        <div class="unread-dot"></div>
+                        <span class="time-ago">2h ago</span>
+                    </div>
+                </div>
+
+                <!-- Friend Studying -->
+                <div class="notification-item unread">
+                    <div class="notif-avatar">
+                        <img src="https://i.pinimg.com/1200x/cb/c9/08/cbc90850a5c561d2ff5c467e35cf9e7b.jpg" alt="User">
+                    </div>
+                    <div class="notif-content">
+                        <p class="notif-text"><strong>Judy Hopps</strong> commented on your post</p>
+                        <p class="notif-time">Thursday 3:12pm</p>
+                        <div class="notif-message">
+                            Love the background on this! Would love to learn how you created the mesh gradient effect.
+                        </div>
+                    </div>
+                    <div class="notif-meta">
+                        <div class="unread-dot"></div>
+                        <span class="time-ago">3h ago</span>
+                    </div>
+                </div>
+
+                <!-- To Do Task -->
+                <div class="notification-item">
+                    <div class="notif-avatar task-icon">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div class="notif-content">
+                        <p class="notif-text"><strong>To Do Reminder</strong>: "Zen list app design" is due in 30 mins.</p>
+                        <p class="notif-time">Today 10:30am</p>
+                    </div>
+                    <div class="notif-meta">
+                        <span class="time-ago">15m ago</span>
+                    </div>
+                </div>
+
+                <!-- Invite -->
+                <div class="notification-item highlight">
+                    <div class="notif-avatar">
+                        <img src="https://i.pinimg.com/736x/5a/36/5e/5a365e42d8be25368104e3c9f16e9c9b.jpg" alt="User">
+                        <div class="icon-badge"><i class="fa-solid fa-heart"></i></div>
+                    </div>
+                    <div class="notif-content">
+                        <p class="notif-text"><strong>Flash</strong> invited you to <strong>Sisyphus Dashboard</strong></p>
+                        <p class="notif-time">Thursday 2:44pm</p>
+                        <div class="notif-actions">
+                            <button class="btn-decline">Decline</button>
+                            <button class="btn-accept">Accept</button>
+                        </div>
+                    </div>
+                    <div class="notif-meta">
+                        <span class="time-ago">4h ago</span>
+                    </div>
+                </div>
+
+                 <!-- Friend Studying -->
+                 <div class="notification-item">
+                    <div class="notif-avatar">
+                        <img src="https://i.pinimg.com/736x/d3/7a/a5/d37aa54693f44ad86aed12fbdbeb1a01.jpg" alt="User">
+                    </div>
+                    <div class="notif-content">
+                        <p class="notif-text"><strong>Jennifer</strong> completed <strong>UX Design Basics</strong></p>
+                        <p class="notif-time">Yesterday 5:00pm</p>
+                    </div>
+                    <div class="notif-meta">
+                        <span class="time-ago">1d ago</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bottom Navigation (Consistent with other pages) -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="../Dashboard/dashboard.html" class="nav-item">
+                <i class="fa-solid fa-chart-pie"></i>
+            </a>
+            <a href="../Buddies/buddies.html" class="nav-item">
+                <i class="fa-solid fa-user-group"></i>
+            </a>
+            <a href="../ToDo/todo.html" class="nav-item">
+                <i class="fa-solid fa-list-check"></i>
+            </a>
+            <a href="../Profile/profile.html" class="nav-item">
+                <i class="fa-regular fa-user"></i>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

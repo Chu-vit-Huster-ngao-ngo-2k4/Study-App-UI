@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leader Board</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="leaderboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-container leaderboard-page">
+        <!-- Header -->
+        <header class="leaderboard-header">
+            <button class="back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <h1>Leader Board</h1>
+        </header>
+
+        <!-- Podium Section -->
+        <div class="podium-section">
+            <!-- 2nd Place -->
+            <div class="podium-item second">
+                <img src="https://i.pinimg.com/1200x/cb/c9/08/cbc90850a5c561d2ff5c467e35cf9e7b.jpg" alt="2nd" class="podium-avatar">
+                <div class="podium-block">2</div>
+            </div>
+            <!-- 1st Place -->
+            <div class="podium-item first">
+                <img src="https://i.pinimg.com/1200x/9d/78/d2/9d78d2c44c7c63c8d83c1dcfc88f585a.jpg" alt="1st" class="podium-avatar">
+                <div class="winner-badge">Winner</div>
+                <div class="podium-block">1</div>
+            </div>
+            <!-- 3rd Place -->
+            <div class="podium-item third">
+                <img src="https://i.pinimg.com/736x/5a/36/5e/5a365e42d8be25368104e3c9f16e9c9b.jpg" alt="3rd" class="podium-avatar">
+                <div class="podium-block">3</div>
+            </div>
+        </div>
+
+        <!-- Leaderboard List -->
+        <div class="leaderboard-list-container">
+            <!-- Item 4 -->
+            <div class="list-item">
+                <span class="rank">04</span>
+                <img src="https://i.pinimg.com/736x/d3/7a/a5/d37aa54693f44ad86aed12fbdbeb1a01.jpg" alt="User" class="list-avatar">
+                <div class="user-info">
+                    <span class="user-name">Jennifer</span>
+                    <span class="user-score"><div class="coin-icon">C</div> 780 mins/day</span>
+                </div>
+                <div class="trend up">+3 <i class="fa-solid fa-caret-up"></i></div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="list-item">
+                <span class="rank">05</span>
+                <img src="https://i.pinimg.com/736x/ac/20/c7/ac20c76cf27d5961555dd7044d23f717.jpg" alt="User" class="list-avatar">
+                <div class="user-info">
+                    <span class="user-name">William</span>
+                    <span class="user-score"><div class="coin-icon">C</div> 756 mins/day</span>
+                </div>
+                <div class="trend down">-1 <i class="fa-solid fa-caret-down"></i></div>
+            </div>
+
+            <!-- Item 6 (You) -->
+            <div class="list-item highlight">
+                <span class="rank">06</span>
+                <img src="https://i.pinimg.com/1200x/1d/95/e9/1d95e91f972e1c0c2072886b4005a76b.jpg" alt="User" class="list-avatar">
+                <div class="user-info">
+                    <span class="user-name">Samantha</span>
+                    <span class="user-score"><div class="coin-icon">C</div> 698 mins/day</span>
+                </div>
+                <div class="trend down">-2 <i class="fa-solid fa-caret-down"></i></div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="list-item">
+                <span class="rank">07</span>
+                <img src="https://preview.redd.it/the-concept-of-nick-wilde-wearing-a-tank-top-still-keeps-me-v0-uinb7rv514yf1.jpeg?width=640&crop=smart&auto=webp&s=21fa6813f20b54ee7e595c81c6c8506adb5b28ec" alt="User" class="list-avatar">
+                <div class="user-info">
+                    <span class="user-name">Nick Wilde</span>
+                    <span class="user-score"><div class="coin-icon">C</div> 636 mins/day</span>
+                </div>
+                <div class="trend down">-1 <i class="fa-solid fa-caret-down"></i></div>
+            </div>
+
+             <!-- Item 8 -->
+             <div class="list-item">
+                <span class="rank">08</span>
+                <img src="https://i.pinimg.com/736x/62/14/20/621420c5c07e1bc367756f8da9b5ead2.jpg" alt="User" class="list-avatar">
+                <div class="user-info">
+                    <span class="user-name">Gazelle</span>
+                    <span class="user-score"><div class="coin-icon">C</div> 560 mins/day</span>
+                </div>
+                <div class="trend down">-1 <i class="fa-solid fa-caret-down"></i></div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item active">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="../Dashboard/dashboard.html" class="nav-item">
+                <i class="fa-solid fa-chart-pie"></i>
+            </a>
+            <a href="../Buddies/buddies.html" class="nav-item">
+                <i class="fa-solid fa-user-group"></i>
+            </a>
+            <a href="../ToDo/todo.html" class="nav-item">
+                <i class="fa-solid fa-list-check"></i>
+            </a>
+            <a href="../Profile/profile.html" class="nav-item">
+                <i class="fa-regular fa-user"></i>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course App UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./Dashboard/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Header -->
+        <header class="index-header">
+            <div class="header-left">
+                <div class="avatar">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ48cPDA1CJ-sUjTt1Q0GfGMcuiqZvA8QfPSaPYPohKEOs5ejIqtptfaRIAsLemP_RqU4Us9yptWcK3e70N1YW6FB8_dffyywH2Ody508w&s=10" alt="User Avatar">
+                </div>
+                <div class="header-text">
+                    <p class="greeting">Hello Judy <span class="wave">👋</span></p>
+                    <h1 class="username">Good Morning</h1>
+                </div>
+            </div>
+            <div class="header-right">
+               
+                <div class="notification-btn" onclick="window.location.href='./Notifications/notifications.html'">
+                    <i class="fa-regular fa-bell"></i>
+                    <div class="notification-dot"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-scroll">
+            <!-- Search -->
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+                <button class="filter-btn">
+                    <i class="fa-solid fa-sliders"></i>
+                </button>
+            </div>
+
+            <!-- Today's Progress -->
+            <div class="progress-card">
+                <div class="progress-info">
+                    <h2>Today's Progress</h2>
+                    <p class="streak">6-day streak</p>
+                    <div class="progress-stats">
+                        <div class="progress-circle">
+                            <span class="percentage">80%</span>
+                        </div>
+                        <p class="goal-text">You're to your<br>goal</p>
+                    </div>
+                </div>
+                <div class="progress-image">
+                    <img src="./image/image1.png" alt="Progress Illustration">
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="section-header">
+                <h2>Quick Actions</h2>
+            </div>
+            
+            <div class="quick-actions-grid">
+                <div class="action-card" onclick="window.location.href='./Focus/focus.html'">
+                    <div class="action-icon blue-bg"><i class="fa-solid fa-brain"></i></div>
+                    <span>Start Focus Session</span>
+                </div>
+                <div class="action-card" onclick="window.location.href='./LeaderBoard/leaderboard.html'">
+                    <div class="action-icon orange-bg"><i class="fa-solid fa-bullseye"></i></div>
+                    <span>Leader Board</span>
+                </div>
+                <div id="block-apps-card" class="action-card" onclick="showBlockAppsPopup()">
+                    <div class="action-icon purple-bg"><i class="fa-solid fa-ban"></i></div>
+                    <span>Block Apps</span>
+                </div>
+                <div class="action-card" onclick="window.location.href='./Courses/courses.html'">
+                    <div class="action-icon red-bg"><i class="fa-solid fa-lock"></i></div>
+                    <span>Course</span>
+                </div>
+            </div>
+
+            <!-- Study Buddies Section -->
+            <div class="section-header">
+                <h2>Study Buddies</h2>
+                <a href="./Buddies/buddies.html" class="view-all">View All</a>
+            </div>
+
+            <div class="friends-list">
+                <!-- Friend 1 -->
+                <div class="friend-card">
+                    <div class="friend-avatar-container">
+                        <img src="https://preview.redd.it/the-concept-of-nick-wilde-wearing-a-tank-top-still-keeps-me-v0-uinb7rv514yf1.jpeg?width=640&crop=smart&auto=webp&s=21fa6813f20b54ee7e595c81c6c8506adb5b28ec" alt="Friend">
+                        <div class="status-indicator online"></div>
+                    </div>
+                    <div class="friend-details">
+                        <h3>Nick Wilde</h3>
+                        <p>Studying: Hustling</p>
+                    </div>
+                    <div class="friend-actions">
+                        <button class="action-btn message-btn"><i class="fa-regular fa-comment-dots"></i></button>
+                        <button class="action-btn join-btn" onclick="requestJoin('Nick Wilde')"><i class="fa-solid fa-right-to-bracket"></i></button>
+                    </div>
+                </div>
+
+                <!-- Friend 2 -->
+                <div class="friend-card">
+                    <div class="friend-avatar-container">
+                        <img src="https://i.pinimg.com/736x/62/14/20/621420c5c07e1bc367756f8da9b5ead2.jpg" alt="Friend">
+                        <div class="status-indicator online"></div>
+                    </div>
+                    <div class="friend-details">
+                        <h3>Gazelle</h3>
+                        <p>Studying: Singing</p>
+                    </div>
+                    <div class="friend-actions">
+                        <button class="action-btn message-btn"><i class="fa-regular fa-comment-dots"></i></button>
+                        <button class="action-btn join-btn" onclick="requestJoin('Gazelle')"><i class="fa-solid fa-right-to-bracket"></i></button>
+                    </div>
+                </div>
+
+                <!-- Friend 3 -->
+                <div class="friend-card">
+                    <div class="friend-avatar-container">
+                        <img src="https://i.pinimg.com/736x/c2/30/10/c230105794175a21ecab7a3590e8aed8.jpg" alt="Friend">
+                        <div class="status-indicator busy"></div>
+                    </div>
+                    <div class="friend-details">
+                        <h3>Chief Bogo</h3>
+                        <p>Studying: Leadership</p>
+                    </div>
+                    <div class="friend-actions">
+                        <button class="action-btn message-btn"><i class="fa-regular fa-comment-dots"></i></button>
+                        <button class="action-btn join-btn" onclick="requestJoin('Chief Bogo')"><i class="fa-solid fa-right-to-bracket"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join Request Popup -->
+        <div id="join-popup" class="popup-overlay hidden">
+            <div class="popup-content">
+                <div class="popup-icon">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                </div>
+                <h3>Waiting for response...</h3>
+                <p>Asking <span id="popup-friend-name">Friend</span> to join...</p>
+                <div class="timer-circle">
+                    <span id="countdown">30</span>
+                </div>
+                <button class="cancel-btn" onclick="cancelJoin()">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Block Apps Popup -->
+        <div id="block-apps-popup" class="popup-overlay hidden">
+            <div class="popup-content">
+                <div class="popup-icon success-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3>Apps Blocked!</h3>
+                <p>Focus mode is on. The following apps are now grayed out.</p>
+                <div class="blocked-apps-list">
+                    <div class="blocked-app-item">
+                        <i class="fa-brands fa-facebook"></i>
+                        <span>Facebook</span>
+                    </div>
+                    <div class="blocked-app-item">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>Instagram</span>
+                    </div>
+                    <div class="blocked-app-item">
+                        <i class="fa-brands fa-tiktok"></i>
+                        <span>TikTok</span>
+                    </div>
+                    <div class="blocked-app-item">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span>YouTube</span>
+                    </div>
+                </div>
+                <button class="close-btn" onclick="closeBlockAppsPopup()">OK, Got it</button>
+            </div>
+        </div>
+
+        <!-- Unblock Apps Popup -->
+        <div id="unblock-apps-popup" class="popup-overlay hidden">
+            <div class="popup-content">
+                <div class="popup-icon" style="background-color: #FFEBEE; color: #EF5350;">
+                    <i class="fa-solid fa-lock-open"></i>
+                </div>
+                <h3>Unblock Apps?</h3>
+                <p>Are you sure you want to unblock your apps and end focus mode?</p>
+                <div class="friend-actions">
+                    <button class="cancel-btn" onclick="closeUnblockAppsPopup()" style="flex: 1;">Cancel</button>
+                    <button class="close-btn" onclick="confirmUnblockApps()" style="flex: 1; background-color: #EF5350;">Unblock</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="./Dashboard/dashboard.html" class="nav-item">
+                <i class="fa-solid fa-chart-pie"></i>
+            </a>
+            <a href="./Buddies/buddies.html" class="nav-item">
+                <i class="fa-solid fa-user-group"></i>
+            </a>
+            <a href="./ToDo/todo.html" class="nav-item">
+                <i class="fa-solid fa-list-check"></i>
+            </a>
+            <a href="./Profile/profile.html" class="nav-item">
+                <i class="fa-regular fa-user"></i>
+            </a>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

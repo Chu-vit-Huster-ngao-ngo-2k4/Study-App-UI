@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Course App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Header (Reused for consistency) -->
+        <header class="dashboard-header">
+            <div class="header-text">
+                <h1 class="username">Dashboard</h1>
+            </div>
+            <div class="avatar">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7c4kM7D0VanHqPS54BgbgK9O170q6F0Qd4w&s" alt="User Avatar">
+                <div class="notification-dot"></div>
+            </div>
+        </header>
+
+        <div class="content-scroll">
+            <!-- Search (Adapted) -->
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search for class, task, etc...">
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <!-- Banner -->
+                <div class="promo-banner">
+                    <div class="promo-text">
+                        <h2>Learning is Fun!</h2>
+                        <p>Learn fun anywhere and anytime.</p>
+                        <button class="btn-start">Get Started</button>
+                    </div>
+                    <div class="promo-image">
+                        <img src="../image/image3.png" alt="Learning">
+                    </div>
+                </div>
+
+                <!-- This Week Stats -->
+                <div class="section-header">
+                    <h2>This Week</h2>
+                    <div class="time-toggle">
+                        <button class="toggle-btn active">Weekly</button>
+                        <button class="toggle-btn">Monthly</button>
+                    </div>
+                </div>
+
+                <!-- Screen Time Card -->
+                <div class="screen-time-card">
+                    <div class="card-top">
+                        <div class="st-info">
+                            <p class="st-label">Total Screen Time</p>
+                            <h3 class="st-value">35 hr</h3>
+                        </div>
+                        <div class="st-trend positive">
+                            <i class="fa-solid fa-arrow-trend-up"></i> +25%
+                        </div>
+                    </div>
+                    <div class="wave-chart-container">
+                        <svg viewBox="0 0 300 100" preserveAspectRatio="none" class="wave-svg">
+                            <defs>
+                                <linearGradient id="gradWave" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:0.4" />
+                                    <stop offset="100%" style="stop-color:#4A90E2;stop-opacity:0" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,80 C40,80 40,30 90,60 S160,90 210,40 S260,10 300,20 V100 H0 Z" fill="url(#gradWave)" />
+                            <path d="M0,80 C40,80 40,30 90,60 S160,90 210,40 S260,10 300,20" fill="none" stroke="#4A90E2" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                        <div class="chart-days">
+                            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Stats Row -->
+                <div class="stats-row">
+                    <!-- Avg Screen Time -->
+                    <div class="stat-box">
+                        <div class="circle-chart-wrapper">
+                            <svg viewBox="0 0 36 36" class="circular-chart blue">
+                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle" stroke-dasharray="35, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <text x="18" y="20.35" class="stat-value">5 hr</text>
+                            </svg>
+                        </div>
+                        <p class="stat-label">Avg. Screen Time</p>
+                    </div>
+
+                    <!-- Focus Score -->
+                    <div class="stat-box">
+                        <div class="circle-chart-wrapper">
+                            <svg viewBox="0 0 36 36" class="circular-chart green">
+                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle" stroke-dasharray="85, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <text x="18" y="20.35" class="stat-value">85%</text>
+                            </svg>
+                        </div>
+                        <p class="stat-label">Focus Score</p>
+                    </div>
+                </div>
+
+                <!-- Calendar -->
+                <div class="section-header">
+                    <h2>October 2020</h2>
+                    <div class="calendar-nav">
+                        <i class="fa-solid fa-chevron-left"></i>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+                <div class="calendar-widget">
+                    <div class="week-days">
+                        <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+                    </div>
+                    <div class="days-grid">
+                        <span class="empty"></span><span class="empty"></span><span class="empty"></span><span>1</span><span>2</span><span>3</span><span>4</span>
+                        <span>5</span><span>6</span><span>7</span><span class="active">8</span><span>9</span><span>10</span><span>11</span>
+                        <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+                        <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
+                        <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+                    </div>
+                </div>
+
+                <!-- Score Statistic -->
+                <div class="section-header">
+                    <h2>Score Statistic</h2>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-legend">
+                        <span class="dot orange"></span> Grade
+                        <span class="dot purple"></span> Exam
+                    </div>
+                    <!-- Simple CSS Line Chart Representation using SVG -->
+                    <svg viewBox="0 0 300 100" class="line-chart">
+                        <!-- Grid lines -->
+                        <line x1="0" y1="25" x2="300" y2="25" stroke="#eee" />
+                        <line x1="0" y1="50" x2="300" y2="50" stroke="#eee" />
+                        <line x1="0" y1="75" x2="300" y2="75" stroke="#eee" />
+                        
+                        <!-- Purple Line -->
+                        <path d="M0,80 Q50,60 100,80 T200,40 T300,60" fill="none" stroke="#9575CD" stroke-width="3" />
+                        <!-- Orange Line -->
+                        <path d="M0,60 Q50,70 100,40 T200,60 T300,70" fill="none" stroke="#FFB74D" stroke-width="3" />
+                        
+                        <!-- Tooltip point -->
+                        <circle cx="100" cy="40" r="4" fill="#FFB74D" stroke="white" stroke-width="2" />
+                        <rect x="80" y="10" width="40" height="20" rx="5" fill="#FFB74D" />
+                        <text x="100" y="24" font-size="10" fill="white" text-anchor="middle">7.68</text>
+                    </svg>
+                    <div class="chart-labels">
+                        <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                    </div>
+                </div>
+
+                <!-- Bottom Stats Grid -->
+                <div class="stats-grid">
+                    <!-- Hours Spent -->
+                    <div class="stat-card">
+                        <div class="card-header-small">
+                            <h3>Hours Spent</h3>
+                            <a href="#">View All</a>
+                        </div>
+                        <p class="sub-text">8 h 25 min</p>
+                        <div class="bar-chart">
+                            <div class="bar-col"><div class="bar" style="height: 40%"></div><span>M</span></div>
+                            <div class="bar-col"><div class="bar" style="height: 70%"></div><span>T</span></div>
+                            <div class="bar-col"><div class="bar" style="height: 50%"></div><span>W</span></div>
+                            <div class="bar-col"><div class="bar" style="height: 80%"></div><span>T</span></div>
+                            <div class="bar-col"><div class="bar" style="height: 60%"></div><span>F</span></div>
+                        </div>
+                    </div>
+
+                    <!-- My Progress -->
+                    <div class="stat-card">
+                        <div class="card-header-small">
+                            <h3>My Progress</h3>
+                        </div>
+                        <div class="progress-circle">
+                            <svg viewBox="0 0 36 36" class="circular-chart orange">
+                                <path class="circle-bg"
+                                    d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                />
+                                <path class="circle"
+                                    stroke-dasharray="68, 100"
+                                    d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                />
+                                <text x="18" y="20.35" class="percentage">68%</text>
+                            </svg>
+                        </div>
+                        <p class="quote">Good work!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="#" class="nav-item active">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dash</span>
+            </a>
+            <a href="../Buddies/buddies.html" class="nav-item">
+                <i class="fa-solid fa-user-group"></i>
+            </a>
+            <a href="../ToDo/todo.html" class="nav-item">
+                <i class="fa-solid fa-list-check"></i>
+            </a>
+            <a href="../Profile/profile.html" class="nav-item">
+                <i class="fa-regular fa-user"></i>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

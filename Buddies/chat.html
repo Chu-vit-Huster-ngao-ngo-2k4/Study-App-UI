@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="chat.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-container chat-page">
+        <!-- Header -->
+        <header class="chat-header">
+            <a href="buddies.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+            <div class="header-title">
+                <h1>Room Chat</h1>
+                <div class="online-status">
+                    <div class="status-dot"></div>
+                    <span>67 People in chat</span>
+                </div>
+            </div>
+            <div class="header-spacer"></div>
+        </header>
+
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <!-- Message 1 -->
+            <div class="message-group incoming">
+                <div class="message-avatar">
+                    <img src="https://i.pinimg.com/736x/8d/4c/ec/8d4cecfcd4d021b68238836bea40e8d6.jpg" alt="User">
+                </div>
+                <div class="message-content">
+                    <div class="message-info">
+                        <span class="sender-name">Bellwether</span>
+                        <span class="message-time">07:23 AM</span>
+                    </div>
+                    <div class="message-bubble">
+                        I need more practise! 🙏
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message 2 -->
+            <div class="message-group incoming">
+                <div class="message-avatar">
+                    <img src="https://i.pinimg.com/736x/62/14/20/621420c5c07e1bc367756f8da9b5ead2.jpg" alt="User">
+                </div>
+                <div class="message-content">
+                    <div class="message-info">
+                        <span class="sender-name">Gazelle</span>
+                        <span class="message-time">07:23 AM</span>
+                    </div>
+                    <div class="message-bubble">
+                        Let's help each other out! 🫶<br>Maybe we can do a quick quiz together later? 📝
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message 3 -->
+            <div class="message-group incoming">
+                <div class="message-avatar">
+                    <img src="https://i.pinimg.com/736x/6c/c6/8d/6cc68d61d16bdf2accf93d38d089165e.jpg" alt="User">
+                </div>
+                <div class="message-content">
+                    <div class="message-info">
+                        <span class="sender-name">Nick Wilde</span>
+                        <span class="message-time">07:34 AM</span>
+                    </div>
+                    <div class="message-bubble">
+                        Ethan could you send the link to the other session, please? 🙏✨
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message 4 (Outgoing) -->
+            <div class="message-group outgoing">
+                <div class="message-content">
+                    <div class="message-info">
+                        <span class="sender-name">You</span>
+                        <div class="status-check"><i class="fa-solid fa-check-double"></i> 07:34 AM</div>
+                    </div>
+                    <div class="message-bubble dark">
+                        Sure! Here's the link to the next session. See you there! 😍
+                    </div>
+                    <!-- Link Card Attachment -->
+                    <div class="link-card">
+                        <div class="link-info">
+                            <h4>No Fear, Just Speak</h4>
+                            <p>June 26, 11:00 AM</p>
+                        </div>
+                        <div class="link-avatars">
+                            <img src="https://i.pinimg.com/736x/5a/36/5e/5a365e42d8be25368104e3c9f16e9c9b.jpg" alt="User">
+                            <img src="https://i.pinimg.com/736x/68/6d/43/686d43a041ab9cde81fecdeb1da47d8b.jpg" alt="User">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typing Indicator -->
+            <div class="message-group incoming">
+                <div class="message-avatar">
+                    <img src="https://i.pinimg.com/736x/6c/c6/8d/6cc68d61d16bdf2accf93d38d089165e.jpg" alt="User">
+                </div>
+                <div class="message-content">
+                    <div class="message-bubble typing">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-container">
+            <div class="input-row">
+                <input type="text" placeholder="Type message...">
+                <button class="send-btn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="attachment-options">
+                <button class="attach-pill dark"><i class="fa-regular fa-file"></i> Files</button>
+                <button class="attach-pill"><i class="fa-regular fa-image"></i> Images</button>
+                <button class="attach-pill"><i class="fa-solid fa-chart-simple"></i> Audio</button>
+                <button class="attach-pill icon-only"><i class="fa-solid fa-plus"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const friendName = urlParams.get('name');
+            const friendAvatar = urlParams.get('avatar');
+
+            if (friendName && friendAvatar) {
+                // Update Header
+                document.querySelector('.header-title h1').textContent = friendName;
+                document.querySelector('.online-status span').textContent = 'Online';
+                
+                // Update Incoming Messages
+                const incomingMessages = document.querySelectorAll('.message-group.incoming');
+                
+                // To make it look like a 1-on-1 chat, let's hide the first few "group" messages 
+                // and only keep one or two relevant ones, or just update them all.
+                // Let's update them all to be from this friend for simplicity.
+                incomingMessages.forEach(msg => {
+                    const nameEl = msg.querySelector('.sender-name');
+                    const avatarEl = msg.querySelector('.message-avatar img');
+                    
+                    if (nameEl) nameEl.textContent = friendName;
+                    if (avatarEl) avatarEl.src = friendAvatar;
+                });
+
+                // Optional: Remove the "Typing" indicator if it exists, or update it too
+                // The code above updates it too since it has .message-group.incoming class
+            }
+        });
+    </script>
+</body>
+</html>

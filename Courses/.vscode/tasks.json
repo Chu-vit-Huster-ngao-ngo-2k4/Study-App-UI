@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "append_css",
+			"type": "shell",
+			"command": "cat >> d:\\KITS\\KITS_FE\\Day2\\Courses\\courses.css <<EOF\n\n/* Background Blur Decor */\n.course-card {\n    position: relative;\n    overflow: hidden;\n    /* Ensure background is white but allows blobs to show if we make it transparent? \n       Actually, in buddies.css, group-card has a background color? \n       Let's check buddies.css for .group-card background. */\n}\n\n.course-info, .course-thumb {\n    position: relative;\n    z-index: 2;\n}\n\n.course-decor-circle {\n    position: absolute;\n    border-radius: 50%;\n    z-index: 1;\n    opacity: 0.6;\n}\n\n.course-decor-circle.big {\n    width: 100px;\n    height: 100px;\n    filter: blur(25px);\n}\n\n.course-decor-circle.small {\n    width: 60px;\n    height: 60px;\n    filter: blur(15px);\n}\n\n/* Colors */\n.course-decor-circle.orange { background-color: #FFCC80; }\n.course-decor-circle.pink { background-color: #F48FB1; }\n.course-decor-circle.blue { background-color: #90CAF9; }\n.course-decor-circle.purple { background-color: #CE93D8; }\n.course-decor-circle.green { background-color: #A5D6A7; }\n\n/* Positions (Randomized for variety) */\n.pos-1 { top: -20px; right: -20px; }\n.pos-2 { bottom: -20px; left: -20px; }\n.pos-3 { top: 40%; right: 10%; }\nEOF\n",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

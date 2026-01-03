@@ -1,0 +1,191 @@
+
+/* Fix spacing for buddies page */
+.buddies-page .content-scroll {
+    padding-top: 0;
+    padding-bottom: 40px;
+}
+
+/* Vertical Friends List */
+.all-friends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+/* Ensure friend cards take full width in vertical list */
+.all-friends-list .friend-card {
+    width: 100%;
+    flex-direction: row; /* Horizontal card layout for vertical list? Or keep vertical? */
+    /* Index page cards are vertical layout (column) */
+}
+
+/* Let's keep them consistent with index page (vertical cards) but maybe in a grid? 
+   Or just a vertical stack of cards. 
+   If I stack them vertically, the "vertical layout" of the card content might look big.
+   Let's try a grid of 2 columns.
+*/
+.all-friends-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.all-friends-list .friend-card {
+    min-width: 0; /* Allow shrinking in grid */
+}
+
+/* Fix spacing for buddies page */
+.buddies-page .content-scroll {
+    padding-top: 0;
+    padding-bottom: 40px;
+}
+
+/* Vertical Friends List */
+.all-friends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+/* Ensure friend cards take full width in vertical list */
+.all-friends-list .friend-card {
+    width: 100%;
+    flex-direction: row; /* Horizontal card layout for vertical list? Or keep vertical? */
+    /* Index page cards are vertical layout (column) */
+}
+
+/* Let's keep them consistent with index page (vertical cards) but maybe in a grid? 
+   Or just a vertical stack of cards. 
+   If I stack them vertically, the "vertical layout" of the card content might look big.
+   Let's try a grid of 2 columns.
+*/
+.all-friends-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.all-friends-list .friend-card {
+    min-width: 0; /* Allow shrinking in grid */
+}
+
+/* Override previous styles for horizontal scrolling list */
+.all-friends-list {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+    grid-template-columns: none; /* Reset grid */
+}
+
+.all-friends-list::-webkit-scrollbar {
+    display: none;
+}
+
+.all-friends-list .friend-card {
+    min-width: 160px;
+    width: auto;
+    flex-direction: column; /* Reset to vertical card layout */
+}
+
+/* Redesign Friend Cards for Buddies Page */
+.all-friends-list .friend-card {
+    flex-direction: row; /* Horizontal layout */
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    gap: 16px;
+    min-width: 280px; /* Wider card */
+}
+
+.all-friends-list .friend-avatar-container {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.all-friends-list .friend-details {
+    text-align: left; /* Left align text */
+    flex: 1; /* Take remaining space */
+}
+
+.all-friends-list .friend-details h3 {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.all-friends-list .friend-details p {
+    font-size: 12px;
+}
+
+.all-friends-list .friend-actions {
+    flex-direction: column-reverse; /* Stack vertically, Join on top */
+    width: auto; /* Auto width */
+    gap: 8px;
+}
+
+.all-friends-list .action-btn {
+    width: 44px;
+    height: 32px;
+    border-radius: 10px;
+    flex: none; /* Don't stretch */
+}
+
+/* Specific button styling to match image */
+.all-friends-list .join-btn {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.all-friends-list .message-btn {
+    background-color: #F5F7FA;
+    color: var(--text-gray);
+}
+
+.join-group-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--text-dark);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.join-group-btn:active {
+    transform: scale(0.98);
+}
+
+.group-card.blue-theme .join-group-btn {
+    background-color: var(--primary-blue);
+}
+
+/* Update Group Card for Flex Layout */
+.group-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.group-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.group-participants {
+    margin-top: auto; /* Push to bottom of content if needed, or just let content flow */
+}
+
+.join-group-btn {
+    margin-top: 20px;
+    z-index: 5; /* Ensure button is clickable above decor */
+    position: relative;
+}
