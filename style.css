@@ -129,6 +129,7 @@ body {
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
+    cursor: pointer;
 }
 
 .avatar img {

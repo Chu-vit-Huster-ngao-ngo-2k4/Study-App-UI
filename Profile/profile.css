@@ -223,3 +223,143 @@ input:focus + .slider {
 input:checked + .slider:before {
     transform: translateX(20px);
 }
+
+/* Edit Profile Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-bottom-sheet {
+    background-color: #fff;
+    width: 100%;
+    max-width: 414px; /* Match mobile container max-width */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 24px;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal-overlay.active .modal-bottom-sheet {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.modal-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-gray);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1px solid #E0E0E0;
+    font-size: 16px;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #F5F7FA;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-blue);
+    background-color: #fff;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.btn-cancel, .btn-save {
+    flex: 1;
+    padding: 14px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s;
+    border: none;
+}
+
+.btn-cancel {
+    background-color: #F5F7FA;
+    color: var(--text-gray);
+}
+
+.btn-save {
+    background-color: var(--primary-blue);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(79, 182, 249, 0.3);
+}
+
+.btn-cancel:active, .btn-save:active {
+    transform: scale(0.98);
+}
+
+/* Success Modal Styles */
+.success-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #E8F5E9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 16px;
+    color: #4CAF50;
+    font-size: 24px;
+}
+
+.text-center {
+    text-align: center;
+}

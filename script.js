@@ -110,3 +110,128 @@ if (unblockAppsPopup) {
         }
     });
 }
+
+/* --- Filter Modal Logic --- */
+function openFilterModal() {
+    const modal = document.getElementById('filter-modal');
+    if (modal) modal.classList.remove('hidden');
+}
+
+function closeFilterModal() {
+    const modal = document.getElementById('filter-modal');
+    if (modal) modal.classList.add('hidden');
+}
+
+// Close filter modal if clicking outside content
+const filterModal = document.getElementById('filter-modal');
+if (filterModal) {
+    filterModal.addEventListener('click', (e) => {
+        if (e.target.id === 'filter-modal') {
+            closeFilterModal();
+        }
+    });
+}
+
+// Filter Chips Selection
+const filterChips = document.querySelectorAll('.filter-chip');
+filterChips.forEach(chip => {
+    chip.addEventListener('click', function() {
+        // If inside the same group, remove active from others
+        const siblings = this.parentElement.querySelectorAll('.filter-chip');
+        siblings.forEach(sib => sib.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+function resetFilters() {
+    const chips = document.querySelectorAll('.filter-chip');
+    chips.forEach(chip => chip.classList.remove('active'));
+    
+    // Set first chip in each group to active
+    const groups = document.querySelectorAll('.filter-chips');
+    groups.forEach(group => {
+        const firstChip = group.querySelector('.filter-chip');
+        if (firstChip) firstChip.classList.add('active');
+    });
+}
+
+function applyFilters() {
+    // In a real app, this would filter data. 
+    // For UI demo, we just close the modal.
+    closeFilterModal();
+}
+
+/* --- Search Logic --- */
+const searchInput = document.getElementById('main-search-input');
+const searchModal = document.getElementById('search-results-modal');
+const searchResultsContainer = document.getElementById('search-results-container');
+
+function closeSearchModal() {
+    if (searchModal) searchModal.classList.add('hidden');
+}
+
+if (searchInput && searchModal && searchResultsContainer) {
+    // Define searchable data
+    const searchData = [
+        { name: 'Start Focus Session', type: 'Action', icon: 'fa-brain', color: 'blue-bg', link: './Focus/focus.html' },
+        { name: 'Leader Board', type: 'Action', icon: 'fa-bullseye', color: 'orange-bg', link: './LeaderBoard/leaderboard.html' },
+        { name: 'Block Apps', type: 'Action', icon: 'fa-ban', color: 'purple-bg', action: 'showBlockAppsPopup' },
+        { name: 'Course', type: 'Action', icon: 'fa-lock', color: 'red-bg', link: './Courses/courses.html' },
+        { name: 'Nick Wilde', type: 'Friend', img: 'https://preview.redd.it/the-concept-of-nick-wilde-wearing-a-tank-top-still-keeps-me-v0-uinb7rv514yf1.jpeg?width=640&crop=smart&auto=webp&s=21fa6813f20b54ee7e595c81c6c8506adb5b28ec', link: '#' },
+        { name: 'Judy Hopps', type: 'Friend', img: 'https://i.pinimg.com/736x/26/86/53/26865383692da2c33e489a675802d201.jpg', link: '#' },
+        { name: 'Flash', type: 'Friend', img: 'https://i.pinimg.com/736x/5a/36/5e/5a365e42d8be25368104e3c9f16e9c9b.jpg', link: '#' },
+        { name: 'Gazelle', type: 'Friend', img: 'https://i.pinimg.com/736x/62/14/20/621420c5c07e1bc367756f8da9b5ead2.jpg', link: '#' },
+        { name: 'Chief Bogo', type: 'Friend', img: 'https://i.pinimg.com/736x/c2/30/10/c230105794175a21ecab7a3590e8aed8.jpg', link: '#' }
+    ];
+
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            if (searchTerm.length === 0) {
+                return;
+            }
+
+            const results = searchData.filter(item => item.name.toLowerCase().includes(searchTerm));
+
+            // Render Results
+            searchResultsContainer.innerHTML = '';
+            
+            if (results.length > 0) {
+                results.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item';
+                    
+                    // Text only as requested
+                    div.innerHTML = `
+                        <div class="result-info">
+                            <div class="result-name">${item.name}</div>
+                            <div class="result-type">${item.type}</div>
+                        </div>
+                    `;
+
+                    // Click Event
+                    div.addEventListener('click', () => {
+                        // UI Demo only - just close modal
+                        closeSearchModal();
+                        searchInput.value = ''; 
+                    });
+
+                    searchResultsContainer.appendChild(div);
+                });
+            } else {
+                searchResultsContainer.innerHTML = '<div class="no-result-item">No results found</div>';
+            }
+            
+            // Show Modal
+            searchModal.classList.remove('hidden');
+        }
+    });
+
+    // Close modal if clicking outside content
+    searchModal.addEventListener('click', (e) => {
+        if (e.target.id === 'search-results-modal') {
+            closeSearchModal();
+        }
+    });
+}

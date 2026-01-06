@@ -14,7 +14,7 @@
         <!-- Header -->
         <header class="index-header">
             <div class="header-left">
-                <div class="avatar">
+                <div class="avatar" onclick="window.location.href='./Profile/profile.html'">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ48cPDA1CJ-sUjTt1Q0GfGMcuiqZvA8QfPSaPYPohKEOs5ejIqtptfaRIAsLemP_RqU4Us9yptWcK3e70N1YW6FB8_dffyywH2Ody508w&s=10" alt="User Avatar">
                 </div>
                 <div class="header-text">
@@ -36,9 +36,9 @@
             <div class="search-container">
                 <div class="search-input-wrapper">
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="text" placeholder="Search">
+                    <input type="text" id="main-search-input" placeholder="Search" autocomplete="off">
                 </div>
-                <button class="filter-btn">
+                <button class="filter-btn" onclick="openFilterModal()">
                     <i class="fa-solid fa-sliders"></i>
                 </button>
             </div>
@@ -139,6 +139,9 @@
                     </div>
                 </div>
             </div>
+
+            <!-- No Results Message -->
+            <!-- Removed in-place no results message as we use popup now -->
         </div>
 
         <!-- Join Request Popup -->
@@ -197,6 +200,56 @@
                 <div class="friend-actions">
                     <button class="cancel-btn" onclick="closeUnblockAppsPopup()" style="flex: 1;">Cancel</button>
                     <button class="close-btn" onclick="confirmUnblockApps()" style="flex: 1; background-color: #EF5350;">Unblock</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Modal -->
+        <div id="filter-modal" class="modal-overlay hidden">
+            <div class="modal-bottom-sheet">
+                <div class="modal-header">
+                    <h3>Filter</h3>
+                    <button class="modal-close-btn" onclick="closeFilterModal()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="filter-section">
+                        <h4>Category</h4>
+                        <div class="filter-chips">
+                            <button class="filter-chip active">All</button>
+                            <button class="filter-chip">Courses</button>
+                            <button class="filter-chip">Buddies</button>
+                            <button class="filter-chip">Tasks</button>
+                        </div>
+                    </div>
+                    <div class="filter-section">
+                        <h4>Status</h4>
+                        <div class="filter-chips">
+                            <button class="filter-chip">Active</button>
+                            <button class="filter-chip">Completed</button>
+                            <button class="filter-chip">Pending</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-reset" onclick="resetFilters()">Reset</button>
+                    <button class="btn-apply" onclick="applyFilters()">Apply</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Results Modal -->
+        <div id="search-results-modal" class="modal-overlay hidden">
+            <div class="modal-bottom-sheet">
+                <div class="modal-header">
+                    <h3>Search Results</h3>
+                    <button class="modal-close-btn" onclick="closeSearchModal()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="search-results-container">
+                    <!-- Results will be injected here -->
                 </div>
             </div>
         </div>

@@ -30,7 +30,7 @@
                         <p>judy.hopps@zpd.gov</p>
                     </div>
                 </div>
-                <button class="edit-profile-btn">
+                <button class="edit-profile-btn" onclick="openEditProfileModal()">
                     <i class="fa-regular fa-pen-to-square"></i>
                 </button>
             </div>
@@ -46,7 +46,7 @@
                         </div>
                         <i class="fa-solid fa-chevron-right arrow-icon"></i>
                     </a>
-                    <a href="#" class="setting-item">
+                    <a href="#" class="setting-item" onclick="openChangePasswordModal()">
                         <div class="setting-left">
                             <div class="setting-icon"><i class="fa-solid fa-lock"></i></div>
                             <span>Change Password</span>
@@ -95,6 +95,76 @@
             </div>
         </div>
 
+        <!-- Edit Profile Modal -->
+        <div id="edit-profile-modal" class="modal-overlay">
+            <div class="modal-bottom-sheet">
+                <div class="modal-header">
+                    <h3>Edit Profile</h3>
+                    <button class="modal-close-btn" onclick="closeEditProfileModal()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="edit-name">Full Name</label>
+                        <input type="text" id="edit-name" value="Judy Hopps">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Email</label>
+                        <input type="email" id="edit-email" value="judy.hopps@zpd.gov">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-cancel" onclick="closeEditProfileModal()">Cancel</button>
+                    <button class="btn-save" onclick="saveProfile()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Password Modal -->
+        <div id="change-password-modal" class="modal-overlay">
+            <div class="modal-bottom-sheet">
+                <div class="modal-header">
+                    <h3>Change Password</h3>
+                    <button class="modal-close-btn" onclick="closeChangePasswordModal()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" placeholder="Enter current password">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" placeholder="Enter new password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" placeholder="Confirm new password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-cancel" onclick="closeChangePasswordModal()">Cancel</button>
+                    <button class="btn-save" onclick="savePassword()">Update Password</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="success-modal" class="modal-overlay">
+            <div class="modal-bottom-sheet">
+                <div class="modal-body text-center">
+                    <div class="success-icon">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 style="margin-bottom: 8px;">Success!</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 24px;">Your password has been changed successfully.</p>
+                    <button class="btn-save" style="width: 100%;" onclick="closeSuccessModal()">OK</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
             <a href="../index.html" class="nav-item">
@@ -115,5 +185,99 @@
             </a>
         </nav>
     </div>
+    
+    <script>
+        // Edit Profile Modal Logic
+        const editProfileModal = document.getElementById('edit-profile-modal');
+        const nameInput = document.getElementById('edit-name');
+        const emailInput = document.getElementById('edit-email');
+        
+        // Elements to update
+        const profileName = document.querySelector('.profile-text h2');
+        const profileEmail = document.querySelector('.profile-text p');
+
+        function openEditProfileModal() {
+            // Pre-fill with current values
+            if (profileName) nameInput.value = profileName.textContent;
+            if (profileEmail) emailInput.value = profileEmail.textContent;
+            
+            editProfileModal.classList.add('active');
+        }
+
+        function closeEditProfileModal() {
+            editProfileModal.classList.remove('active');
+        }
+
+        function saveProfile() {
+            // Update UI
+            if (profileName) profileName.textContent = nameInput.value;
+            if (profileEmail) profileEmail.textContent = emailInput.value;
+            
+            closeEditProfileModal();
+        }
+
+        // Close modal if clicking outside content
+        editProfileModal.addEventListener('click', (e) => {
+            if (e.target === editProfileModal) {
+                closeEditProfileModal();
+            }
+        });
+
+        // Change Password Modal Logic
+        const changePasswordModal = document.getElementById('change-password-modal');
+        const currentPasswordInput = document.getElementById('current-password');
+        const newPasswordInput = document.getElementById('new-password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        const successModal = document.getElementById('success-modal');
+
+        function openChangePasswordModal() {
+            // Clear inputs
+            currentPasswordInput.value = '';
+            newPasswordInput.value = '';
+            confirmPasswordInput.value = '';
+            changePasswordModal.classList.add('active');
+        }
+
+        function closeChangePasswordModal() {
+            changePasswordModal.classList.remove('active');
+        }
+
+        function closeSuccessModal() {
+            successModal.classList.remove('active');
+        }
+
+        function savePassword() {
+            const current = currentPasswordInput.value;
+            const newPass = newPasswordInput.value;
+            const confirmPass = confirmPasswordInput.value;
+
+            if (!current || !newPass || !confirmPass) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            if (newPass !== confirmPass) {
+                alert('New passwords do not match');
+                return;
+            }
+
+            // In a real app, you would send an API request here
+            closeChangePasswordModal();
+            successModal.classList.add('active');
+        }
+
+        // Close modal if clicking outside content
+        changePasswordModal.addEventListener('click', (e) => {
+            if (e.target === changePasswordModal) {
+                closeChangePasswordModal();
+            }
+        });
+        
+        successModal.addEventListener('click', (e) => {
+            if (e.target === successModal) {
+                closeSuccessModal();
+            }
+        });
+    </script>
 </body>
 </html>
