@@ -13,11 +13,11 @@
     <div class="mobile-container todo-page">
         <!-- Header -->
         <header class="todo-header">
-            <button class="header-icon-btn back-btn" onclick="window.history.back()">
-                <i class="fa-solid fa-arrow-left"></i>
+            <button class="back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-chevron-left"></i>
             </button>
             <h1>To Do List</h1>
-            <div class="header-spacer"></div>
+            <div class="header-spacer" style="width: 40px;"></div>
         </header>
 
         <div class="content-scroll">
@@ -44,65 +44,17 @@
             <!-- In Progress -->
             <div class="task-section">
                 <h2 class="section-title">In progress</h2>
-                
-                <div class="task-card">
-                    <div class="task-check">
-                        <div class="circle-check"></div>
-                    </div>
-                    <div class="task-info">
-                        <h3>Photo editing</h3>
-                        <p>10:00 - 10:30</p>
-                    </div>
-                    <button class="task-menu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-                </div>
-
-                <div class="task-card">
-                    <div class="task-check">
-                        <div class="circle-check"></div>
-                    </div>
-                    <div class="task-info">
-                        <h3>Zen list app design</h3>
-                        <p>11:00 - 12:45</p>
-                    </div>
-                    <button class="task-menu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-                </div>
-
-                <div class="task-card">
-                    <div class="task-check">
-                        <div class="circle-check"></div>
-                    </div>
-                    <div class="task-info">
-                        <h3>Doing ux exercises</h3>
-                        <p>15:00 - 16:30</p>
-                    </div>
-                    <button class="task-menu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-                </div>
-
-                <div class="task-card">
-                    <div class="task-check">
-                        <div class="circle-check"></div>
-                    </div>
-                    <div class="task-info">
-                        <h3>Shopping website design project</h3>
-                        <p>18:00 - 20:00</p>
-                    </div>
-                    <button class="task-menu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                <div id="inprogress-list">
+                    <!-- Tasks will be injected here -->
+                    <div class="empty-state">No tasks for this day.</div>
                 </div>
             </div>
 
             <!-- Completed -->
             <div class="task-section">
                 <h2 class="section-title">Completed</h2>
-                
-                <div class="task-card completed">
-                    <div class="task-check">
-                        <div class="circle-check checked"><i class="fa-solid fa-check"></i></div>
-                    </div>
-                    <div class="task-info">
-                        <h3>Meeting with the boss</h3>
-                        <p>08:00 - 08:20</p>
-                    </div>
-                    <button class="task-menu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                <div id="completed-list">
+                   <!-- Completed tasks here -->
                 </div>
             </div>
         </div>
@@ -131,6 +83,19 @@
                 <i class="fa-regular fa-user"></i>
             </a>
         </nav>
+
+        <!-- Delete Confirmation Modal -->
+        <div class="modal-overlay" id="deleteModal">
+            <div class="modal-content">
+                <i class="fa-solid fa-trash" style="font-size: 32px; color: #FF5252; margin-bottom: 10px;"></i>
+                <h3>Delete Task?</h3>
+                <p>Are you sure you want to delete this task?</p>
+                <div class="modal-actions">
+                    <button class="modal-btn cancel" onclick="closeDeleteModal()">Cancel</button>
+                    <button class="modal-btn delete" onclick="confirmDelete()">Delete</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="todo.js"></script>
 </body>

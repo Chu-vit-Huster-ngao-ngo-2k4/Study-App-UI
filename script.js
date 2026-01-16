@@ -24,13 +24,15 @@ function requestJoin(friendName) {
         
         if (timeLeft <= 0) {
             clearInterval(countdownInterval);
-            // Redirect to video call page
+            // Redirect to video call page with title param
+            const param = '?title=' + encodeURIComponent(friendNameSpan.textContent);
+            
             // Check if we are in a subdirectory (like Buddies/) or root
             const currentPath = window.location.pathname;
             if (currentPath.includes('Buddies') || currentPath.includes('buddies')) {
-                window.location.href = 'video-call.html';
+                window.location.href = 'video-call.html' + param;
             } else {
-                window.location.href = 'Buddies/video-call.html';
+                window.location.href = 'Buddies/video-call.html' + param;
             }
         }
     }, 1000);
@@ -43,11 +45,79 @@ function cancelJoin() {
 }
 
 // Close popup if clicking outside content
-document.getElementById('join-popup').addEventListener('click', (e) => {
-    if (e.target.id === 'join-popup') {
-        cancelJoin();
-    }
+const joinPopup = document.getElementById('join-popup');
+if (joinPopup) {
+    joinPopup.addEventListener('click', (e) => {
+        if (e.target.id === 'join-popup') {
+            cancelJoin();
+        }
+    });
+}
+
+// Group Join Buttons Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const groupJoinBtns = document.querySelectorAll('.join-group-btn');
+    groupJoinBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Find group title
+            const card = e.target.closest('.group-card');
+            const title = card.querySelector('.group-title').textContent;
+            requestJoin(title); // Reuse requestJoin logic for groups
+        });
+    });
 });
+
+
+// Mini Player Logic (Shared)
+document.addEventListener('DOMContentLoaded', () => {
+    checkActiveCall();
+});
+
+function checkActiveCall() {
+    const miniPlayer = document.getElementById('mini-player');
+    if (!miniPlayer) return;
+
+    const data = sessionStorage.getItem('activeVideoCall');
+    if (data) {
+        try {
+            const session = JSON.parse(data);
+            if (session && session.active) {
+                // Show player
+                miniPlayer.classList.remove('hidden');
+                
+                // Set info
+                const titleEl = document.getElementById('mini-player-title');
+                const timerEl = document.getElementById('mini-player-timer');
+                
+                if (titleEl) titleEl.textContent = session.title;
+                if (timerEl) {
+                    // Estimate current time based on elapsed
+                    // Simple mock for now: just show last time
+                    timerEl.textContent = session.lastTime; 
+                }
+
+                // Add event listeners
+                const content = document.getElementById('mini-player-content');
+                if (content) {
+                    content.onclick = () => {
+                        window.location.href = 'video-call.html?title=' + encodeURIComponent(session.title);
+                    };
+                }
+
+                const endBtn = document.getElementById('mini-player-end-btn');
+                if (endBtn) {
+                    endBtn.onclick = (e) => {
+                        e.stopPropagation(); // Prevent card click
+                        sessionStorage.removeItem('activeVideoCall');
+                        miniPlayer.classList.add('hidden');
+                    };
+                }
+            }
+        } catch (e) {
+            console.error("Error parsing call session", e);
+        }
+    }
+}
 
 // Block Apps Popup Logic
 function showBlockAppsPopup() {

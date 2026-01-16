@@ -13,10 +13,13 @@
     <div class="mobile-container">
         <!-- Header (Reused for consistency) -->
         <header class="dashboard-header">
+            <button class="back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
             <div class="header-text">
                 <h1 class="username">Dashboard</h1>
             </div>
-            <div class="avatar">
+            <div class="avatar" style="margin-left: auto;">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7c4kM7D0VanHqPS54BgbgK9O170q6F0Qd4w&s" alt="User Avatar">
                 <div class="notification-dot"></div>
             </div>
@@ -34,15 +37,21 @@
             <!-- Dashboard Content -->
             <div class="dashboard-content">
                 
-                <!-- Banner -->
-                <div class="promo-banner">
-                    <div class="promo-text">
-                        <h2>Learning is Fun!</h2>
-                        <p>Learn fun anywhere and anytime.</p>
-                        <button class="btn-start">Get Started</button>
+                <!-- Quick Access Stats -->
+                <div class="stats-overview-grid">
+                    <div class="stat-card" onclick="window.location.href='../Focus/focus.html'">
+                        <div class="stat-icon blue"><i class="fa-solid fa-clock"></i></div>
+                        <div class="stat-info">
+                            <h3>Focus</h3>
+                            <p>3h 20m</p>
+                        </div>
                     </div>
-                    <div class="promo-image">
-                        <img src="../image/image3.png" alt="Learning">
+                    <div class="stat-card" onclick="window.location.href='../ToDo/todo.html'">
+                        <div class="stat-icon green"><i class="fa-solid fa-check-double"></i></div>
+                        <div class="stat-info">
+                            <h3>Tasks</h3>
+                            <p>8/12 Done</p>
+                        </div>
                     </div>
                 </div>
 

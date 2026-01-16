@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="focus.css">
+    <link rel="stylesheet" href="focus_app_block.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="mobile-container focus-page">
         <!-- Header -->
         <header class="focus-header">
-            <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+            <button class="back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
             <h1>Focus Session</h1>
-            <div class="header-spacer"></div>
+            <div class="header-spacer" style="width: 40px;"></div>
         </header>
 
         <div class="content-scroll">
@@ -32,8 +35,8 @@
 
             <!-- Controls -->
             <div class="timer-controls">
-                <button class="control-icon-btn"><i class="fa-solid fa-rotate-right"></i></button>
-                <button class="start-btn">Start</button>
+                <button class="control-icon-btn" id="reset-btn"><i class="fa-solid fa-rotate-right"></i></button>
+                <button class="start-btn" id="start-btn">Start</button>
                 <button class="control-icon-btn"><i class="fa-solid fa-volume-high"></i></button>
             </div>
 
@@ -44,6 +47,20 @@
                 <button class="preset-pill">30m</button>
                 <button class="preset-pill">45m</button>
                 <button class="preset-pill">1h</button>
+            </div>
+
+            <!-- App Block Toggle -->
+            <div class="block-apps-container" id="block-apps-card">
+                <div class="block-info">
+                    <div class="block-icon">
+                        <i class="fa-solid fa-ban"></i>
+                    </div>
+                    <div class="block-text">
+                        <h3>Block Distracting Apps</h3>
+                        <p>Limit notifications during focus</p>
+                    </div>
+                </div>
+                <div class="toggle-switch" id="block-apps-toggle"></div>
             </div>
 
             <!-- Ambient Sound -->
@@ -81,20 +98,36 @@
             <button class="customize-btn">Customize Playlist</button>
         </div>
     </div>
-    <script>
-        // Simple script to handle active states
-        document.querySelectorAll('.preset-pill').forEach(pill => {
-            pill.addEventListener('click', () => {
-                document.querySelectorAll('.preset-pill').forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-            });
-        });
+    <!-- Block Confirmation Modal -->
+    <div id="block-confirm-popup" class="focus-modal-overlay">
+        <div class="focus-modal-content">
+            <div class="modal-icon-wrapper">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3>Block Distractions?</h3>
+            <p>We will minimize notifications from social apps while the timer is running.</p>
+            <div class="modal-actions">
+                <button class="modal-btn secondary" onclick="closeFocusModal('block-confirm-popup')">Cancel</button>
+                <button class="modal-btn primary" onclick="confirmBlockApps()">Activate</button>
+            </div>
+        </div>
+    </div>
 
-        document.querySelectorAll('.ambient-card').forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('active');
-            });
-        });
-    </script>
+    <!-- Unblock Confirmation Modal -->
+    <div id="unblock-confirm-popup" class="focus-modal-overlay">
+        <div class="focus-modal-content">
+            <div class="modal-icon-wrapper warning">
+                <i class="fa-solid fa-unlock"></i>
+            </div>
+            <h3>Disable Blocking?</h3>
+            <p>You might get distracted. Are you sure you want to enable notifications again?</p>
+            <div class="modal-actions">
+                <button class="modal-btn secondary" onclick="closeFocusModal('unblock-confirm-popup')">Keep On</button>
+                <button class="modal-btn danger" onclick="confirmUnblockApps()">Disable</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="focus.js"></script>
 </body>
 </html>

@@ -1,70 +1,183 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- State ---
+    let currentDate = new Date(); // Default to today
+    let currentCategory = 'All';
+
+    // Elements
     const dateStrip = document.getElementById('dateStrip');
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    
-    // Generate 30 days
-    // Starting from July 1st 2025 (Tuesday) as an example base
-    // But to match the image where 10th is Wed, let's calculate backwards.
-    // If 10th is Wed, then:
-    // 9 Tue, 8 Mon, 7 Sun, 6 Sat, 5 Fri, 4 Thu, 3 Wed, 2 Tue, 1 Mon.
-    // So July 1st 2025 is a Monday.
-    
-    let html = '';
-    for (let i = 1; i <= 30; i++) {
-        // Calculate day of week
-        // 1st is Mon (index 1), so (i + offset) % 7
-        // 1 % 7 = 1 (Mon)
-        // 10 % 7 = 3 (Wed) -> Correct
-        const dayIndex = i % 7; 
-        const dayName = days[dayIndex];
+    const monthLabel = document.querySelector('.month-selector span');
+    const inProgressList = document.getElementById('inprogress-list');
+    const completedList = document.getElementById('completed-list');
+    const categoryBtns = document.querySelectorAll('.cat-btn');
+
+    // --- Format Date Helpers ---
+    function formatDateKey(date) {
+        const y = date.getFullYear();
+        const m = String(date.getMonth() + 1).padStart(2, '0');
+        const d = String(date.getDate()).padStart(2, '0');
+        return `${y}-${m}-${d}`;
+    }
+
+    // --- Date Strip Logic ---
+    function renderDateStrip() {
+        if (!dateStrip || !monthLabel) return;
         
-        // Check if it's the "current" day (10th)
-        const isToday = i === 10 ? 'today' : '';
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth(); // 0-indexed
         
-        html += `
-            <div class="date-item ${isToday}" data-date="${i}">
-                <span class="day-name">${dayName}</span>
-                <span class="day-num">${i}</span>
+        // Update Header
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        monthLabel.textContent = `${monthNames[month]} ${year}`;
+
+        // Get number of days in this month
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        
+        let html = '';
+        for (let i = 1; i <= daysInMonth; i++) {
+            const dateObj = new Date(year, month, i);
+            const dayName = days[dateObj.getDay()];
+            
+            // Check if selected
+            const dateKey = formatDateKey(dateObj);
+            const selectedKey = formatDateKey(currentDate);
+            const isSelected = dateKey === selectedKey ? 'today' : '';
+            
+            html += `
+                <div class="date-item ${isSelected}" data-full-date="${dateKey}" onclick="selectDate('${dateKey}')">
+                    <span class="day-name">${dayName}</span>
+                    <span class="day-num">${i}</span>
+                </div>
+            `;
+        }
+        dateStrip.innerHTML = html;
+        scrollToSelectedDate();
+    }
+
+    // Initialize Global Function for OnClick
+    window.selectDate = function(dateStr) {
+        // Fix timezone issue by using parts
+        const parts = dateStr.split('-');
+        currentDate = new Date(parts[0], parts[1]-1, parts[2]);
+        
+        renderDateStrip();
+        renderTasks();
+    }
+
+    function scrollToSelectedDate() {
+        const selected = document.querySelector('.date-item.today');
+        if (selected) {
+            selected.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+    }
+
+    // --- Category Logic ---
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            currentCategory = btn.textContent.trim();
+            renderTasks();
+        });
+    });
+
+    // --- Task Rendering Logic ---
+    function getTasks() {
+        return JSON.parse(localStorage.getItem('tasks')) || [];
+    }
+
+    function saveTasks(tasks) {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    function renderTasks() {
+        const tasks = getTasks();
+        const dateKey = formatDateKey(currentDate);
+
+        // Filter by Date
+        let filtered = tasks.filter(t => t.date === dateKey);
+
+        // Filter by Category
+        if (currentCategory !== 'All') {
+            filtered = filtered.filter(t => t.category === currentCategory);
+        }
+
+        // Split
+        const todo = filtered.filter(t => !t.completed);
+        const done = filtered.filter(t => t.completed);
+
+        // Render In Progress
+        if (todo.length === 0) {
+            inProgressList.innerHTML = '<div class="empty-state" style="text-align:center; padding:20px; color:#aaa;">No tasks for this day.</div>';
+        } else {
+            inProgressList.innerHTML = todo.map(t => createTaskHTML(t, false)).join('');
+        }
+
+        // Render Completed
+        if (done.length === 0) {
+            completedList.innerHTML = '';
+        } else {
+            completedList.innerHTML = done.map(t => createTaskHTML(t, true)).join('');
+        }
+    }
+
+    function createTaskHTML(task, isCompleted) {
+        const checkedClass = isCompleted ? 'checked' : '';
+        const completedClass = isCompleted ? 'completed' : '';
+        const checkIcon = isCompleted ? '<i class="fa-solid fa-check"></i>' : '';
+
+        return `
+            <div class="task-card ${completedClass}">
+                <div class="task-check" onclick="toggleTask('${task.id}')">
+                    <div class="circle-check ${checkedClass}">${checkIcon}</div>
+                </div>
+                <div class="task-info">
+                    <h3>${task.title}</h3>
+                    <p>${task.startTime} - ${task.endTime} • ${task.category}</p>
+                </div>
+                <button class="task-menu" onclick="deleteTask('${task.id}')"><i class="fa-solid fa-trash"></i></button>
             </div>
         `;
     }
-    
-    dateStrip.innerHTML = html;
 
-    // Scroll Scaling Effect
-    const handleScroll = () => {
-        const stripCenter = dateStrip.getBoundingClientRect().left + dateStrip.offsetWidth / 2;
-        const items = document.querySelectorAll('.date-item');
-        
-        items.forEach(item => {
-            const itemCenter = item.getBoundingClientRect().left + item.offsetWidth / 2;
-            const distance = Math.abs(stripCenter - itemCenter);
-            
-            // Calculate scale based on distance
-            // Max scale 1.3 at center, 1.0 at edges
-            // Effect range: 150px
-            const maxDistance = 150;
-            let scale = 1;
-            
-            if (distance < maxDistance) {
-                scale = 1 + (0.3 * (1 - distance / maxDistance));
-            }
-            
-            item.style.transform = `scale(${scale})`;
-            item.style.zIndex = scale > 1.1 ? 10 : 1; // Bring scaled items to front
-        });
-    };
-
-    dateStrip.addEventListener('scroll', handleScroll);
-    
-    // Initial call to set scales
-    // Scroll to the 10th day initially
-    const todayItem = document.querySelector('.date-item.today');
-    if (todayItem) {
-        const scrollPos = todayItem.offsetLeft - (dateStrip.offsetWidth / 2) + (todayItem.offsetWidth / 2);
-        dateStrip.scrollLeft = scrollPos;
+    // --- Task Actions ---
+    window.toggleTask = function(id) {
+        const tasks = getTasks();
+        const task = tasks.find(t => t.id === id);
+        if (task) {
+            task.completed = !task.completed;
+            saveTasks(tasks);
+            renderTasks();
+        }
     }
-    
-    // Trigger scroll handler once to set initial scales
-    handleScroll();
+
+    // Modal Logic
+    let taskIdToDelete = null;
+    const deleteModal = document.getElementById('deleteModal');
+
+    window.deleteTask = function(id) {
+        taskIdToDelete = id;
+        deleteModal.classList.add('visible');
+    }
+
+    window.closeDeleteModal = function() {
+        deleteModal.classList.remove('visible');
+        taskIdToDelete = null;
+    }
+
+    window.confirmDelete = function() {
+        if (!taskIdToDelete) return;
+
+        let tasks = getTasks();
+        tasks = tasks.filter(t => t.id !== taskIdToDelete);
+        saveTasks(tasks);
+        renderTasks();
+        
+        closeDeleteModal();
+    }
+
+    // --- Init ---
+    renderDateStrip();
+    renderTasks();
 });

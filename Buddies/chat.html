@@ -13,7 +13,7 @@
     <div class="mobile-container chat-page">
         <!-- Header -->
         <header class="chat-header">
-            <a href="buddies.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+            <a href="buddies.html" class="back-btn" id="chat-back-btn"><i class="fa-solid fa-arrow-left"></i></a>
             <div class="header-title">
                 <h1>Room Chat</h1>
                 <div class="online-status">
@@ -133,6 +133,21 @@
             const urlParams = new URLSearchParams(window.location.search);
             const friendName = urlParams.get('name');
             const friendAvatar = urlParams.get('avatar');
+
+            // Handle Back Button Logic
+            const backBtn = document.getElementById('chat-back-btn');
+            const fromSource = urlParams.get('from');
+            const returnTitle = urlParams.get('returnTitle');
+
+            if (fromSource === 'call' && backBtn) {
+                // If came from call, use history.back() to preserve call state if possible
+                backBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.history.back();
+                });
+                // Fallback href (though allow default prevents it)
+                backBtn.href = "#"; 
+            }
 
             if (friendName && friendAvatar) {
                 // Update Header

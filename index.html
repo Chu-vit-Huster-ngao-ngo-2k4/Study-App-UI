@@ -60,28 +60,57 @@
                 </div>
             </div>
 
-            <!-- Quick Actions -->
+            <!-- Main Features (Highlighting the 3 Core Tasks) -->
             <div class="section-header">
-                <h2>Quick Actions</h2>
+                <h2>Productivity Hub</h2>
             </div>
             
-            <div class="quick-actions-grid">
-                <div class="action-card" onclick="window.location.href='./Focus/focus.html'">
-                    <div class="action-icon blue-bg"><i class="fa-solid fa-brain"></i></div>
-                    <span>Start Focus Session</span>
+            <div class="features-grid">
+                <!-- Task 1: Focus Mode -->
+                <div class="feature-card focus-card" onclick="window.location.href='./Focus/focus.html'">
+                    <div class="f-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="f-text">
+                        <h3>Focus Session</h3>
+                        <p>Start Timer & Block Apps</p>
+                    </div>
+                    <div class="f-arrow"><i class="fa-solid fa-arrow-right"></i></div>
                 </div>
-                <div class="action-card" onclick="window.location.href='./LeaderBoard/leaderboard.html'">
-                    <div class="action-icon orange-bg"><i class="fa-solid fa-bullseye"></i></div>
-                    <span>Leader Board</span>
+
+                <!-- Task 2: Study Room (Video Call) -->
+                <div class="feature-card study-card" onclick="window.location.href='./Buddies/buddies.html'">
+                    <div class="f-icon"><i class="fa-solid fa-video"></i></div>
+                    <div class="f-text">
+                        <h3>Study Room</h3>
+                        <p>Learn with Friends</p>
+                    </div>
+                    <div class="f-arrow"><i class="fa-solid fa-arrow-right"></i></div>
                 </div>
-                <div id="block-apps-card" class="action-card" onclick="showBlockAppsPopup()">
-                    <div class="action-icon purple-bg"><i class="fa-solid fa-ban"></i></div>
-                    <span>Block Apps</span>
+
+                <!-- Task 3: To Do List -->
+                <div class="feature-card todo-card" onclick="window.location.href='./ToDo/todo.html'">
+                    <div class="f-icon"><i class="fa-solid fa-list-check"></i></div>
+                    <div class="f-text">
+                        <h3>My Tasks</h3>
+                        <p>Manage Daily Goals</p>
+                    </div>
+                    <div class="f-arrow"><i class="fa-solid fa-arrow-right"></i></div>
                 </div>
-                <div class="action-card" onclick="window.location.href='./Courses/courses.html'">
-                    <div class="action-icon red-bg"><i class="fa-solid fa-lock"></i></div>
-                    <span>Course</span>
-                </div>
+            </div>
+
+            <!-- Supporting Features -->
+            <div class="section-header">
+                <h2>Quick Shortcuts</h2>
+            </div>
+            <div class="quick-shortcuts">
+                 <div class="shortcut-pill" onclick="window.location.href='./Dashboard/dashboard.html'">
+                    <i class="fa-solid fa-chart-pie"></i> Statistics
+                 </div>
+                 <div class="shortcut-pill" onclick="window.location.href='./LeaderBoard/leaderboard.html'">
+                    <i class="fa-solid fa-trophy"></i> Ranking
+                 </div>
+                 <div class="shortcut-pill" onclick="window.location.href='./Courses/courses.html'">
+                    <i class="fa-solid fa-graduation-cap"></i> Courses
+                 </div>
             </div>
 
             <!-- Study Buddies Section -->

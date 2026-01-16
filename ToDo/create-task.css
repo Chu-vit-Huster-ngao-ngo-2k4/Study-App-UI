@@ -91,6 +91,52 @@
     top: 50%;
     transform: translateY(-50%);
     color: var(--text-dark);
+    pointer-events: none;
+}
+
+/* New Inputs Styling */
+.category-select {
+    position: relative;
+}
+
+.category-select select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #E0E0E0;
+    padding: 8px 30px 8px 0;
+    font-size: 16px;
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    cursor: pointer;
+}
+
+.category-select i {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dark);
+    pointer-events: none;
+}
+
+.time-range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.time-range-inputs input {
+    width: 100px;
+    text-align: center;
+}
+
+.time-range-inputs span {
+    color: var(--text-dark);
+    font-weight: 500;
 }
 
 /* Toggle Switch */

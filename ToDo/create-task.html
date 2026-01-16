@@ -13,11 +13,11 @@
     <div class="mobile-container create-task-page">
         <!-- Header -->
         <header class="page-header">
-            <button class="header-icon-btn back-btn" onclick="window.history.back()">
-                <i class="fa-solid fa-arrow-left"></i>
+            <button class="back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-chevron-left"></i>
             </button>
             <h1>Create New Task</h1>
-            <div class="header-spacer"></div>
+            <div class="header-spacer" style="width: 40px;"></div>
         </header>
 
         <div class="content-scroll">
@@ -25,24 +25,39 @@
                 <!-- Title -->
                 <div class="form-group">
                     <label>Title</label>
-                    <input type="text" placeholder="Book reading" value="Book reading">
+                    <input type="text" id="task-title" placeholder="Book reading" value="">
+                </div>
+
+                <!-- Category -->
+                <div class="form-group">
+                    <label>Category</label>
+                    <div class="category-select">
+                        <select id="task-category">
+                            <option value="Projects">Projects</option>
+                            <option value="Study">Study</option>
+                            <option value="Work">Work</option>
+                            <option value="Daily tasks">Daily tasks</option>
+                            <option value="Sports">Sports</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
                 </div>
 
                 <!-- Date -->
                 <div class="form-group">
                     <label>Date</label>
                     <div class="input-with-icon">
-                        <input type="text" value="10 July 2025">
-                        <i class="fa-regular fa-calendar"></i>
+                        <input type="date" id="task-date">
                     </div>
                 </div>
 
                 <!-- Time -->
                 <div class="form-group">
                     <label>Time</label>
-                    <div class="input-with-icon">
-                        <input type="text" value="12:30 - 13:00">
-                        <i class="fa-regular fa-clock"></i>
+                    <div class="time-range-inputs">
+                        <input type="time" id="task-start-time" value="12:30">
+                        <span>-</span>
+                        <input type="time" id="task-end-time" value="13:00">
                     </div>
                 </div>
 

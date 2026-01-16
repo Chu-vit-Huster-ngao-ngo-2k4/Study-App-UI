@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="buddies.css">
+    <link rel="stylesheet" href="mini-player.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="mobile-container buddies-page">
         <!-- Header -->
         <header class="buddies-header">
-            <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+            <button class="back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
             <h1>Study Buddies</h1>
-            <div class="header-spacer"></div>
+            <div class="header-spacer" style="width: 40px;"></div>
         </header>
 
         <div class="content-scroll">
@@ -222,6 +225,20 @@
                 </div>
                 <button class="cancel-btn" onclick="cancelJoin()">Cancel</button>
             </div>
+        </div>
+
+        <!-- Mini Player (Hidden by default) -->
+        <div id="mini-player" class="mini-player hidden">
+            <div class="mini-content" id="mini-player-content">
+                <div class="mini-status pulse"></div>
+                <div class="mini-info">
+                    <span class="mini-title" id="mini-player-title">Study Session</span>
+                    <span class="mini-timer" id="mini-player-timer">00:00</span>
+                </div>
+            </div>
+            <button class="mini-end-btn" id="mini-player-end-btn">
+                <i class="fa-solid fa-phone-slash"></i>
+            </button>
         </div>
 
         <!-- Bottom Navigation -->
